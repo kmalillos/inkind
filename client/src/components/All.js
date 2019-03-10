@@ -1,9 +1,9 @@
 import React from "react";
 
-const Home = () => {
+const All = () => {
     return (
         <div>
-            <h1>Home</h1>
+            <h1>All</h1>
 
             <p>Doggo ipsum aqua doggo boof smol borking doggo with a long snoot for pats blep, length boy most angery pupper I have ever seen. Clouds heckin good boys much ruin diet the neighborhood pupper blop yapper waggy wags, fat boi heckin good boys you are doing me the shock wow very biscit. Heckin angery woofer heckin shibe blop pupper doge pats pupperino stop it fren, heckin good boys and girls many pats wow very biscit stop it fren shooberino corgo. fat boi. Shibe waggy wags boofers big ol, heck.</p>
  
@@ -14,4 +14,4 @@ const Home = () => {
     )
 }
 
-export default Home;
+export default All;

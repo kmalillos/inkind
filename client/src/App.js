@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
+import Home from "./pages/Home";
+import All from "./components/All";
+import Add from "./components/Add";
+import Search from "./components/Search";
 
 
 class App extends Component {
@@ -9,10 +13,10 @@ class App extends Component {
       <Router>
         <>
           <NavBar />
-          <Route exact path="/" component={} />
-          <Route exact path="/all" component={} />
-          <Route exact path="/search" component={} />
-          <Route exact path="/add" component={} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/all" component={All} />
+          <Route exact path="/search" component={Search} />
+          <Route exact path="/add" component={Add} />
         </>
       </Router>
     );
