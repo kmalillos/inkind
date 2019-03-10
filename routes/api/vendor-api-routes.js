@@ -4,6 +4,7 @@ module.exports = function(app) {
   // Find all Vendor and return them to the user with res.json
   app.get("/api/vendor", function(req, res) {
     db.Vendor.findAll({}).then(function(dbVendor) {
+      console.log(`Found all Vendors.`);
       res.json(dbVendor);
     });
   });
@@ -15,6 +16,7 @@ module.exports = function(app) {
         id: req.params.id
       }
     }).then(function(dbVendor) {
+      console.log(`Found: ${dbVendor}`);
       res.json(dbVendor);
     });
   });
@@ -23,6 +25,7 @@ module.exports = function(app) {
     // Create an Vendor with the data available to us in req.body
     console.log(req.body);
     db.Vendor.create(req.body).then(function(dbVendor) {
+      console.log(`Posted: ${dbVendor}`);
       res.json(dbVendor);
     });
   });
@@ -34,6 +37,7 @@ module.exports = function(app) {
         id: req.params.id
       }
     }).then(function(dbVendor) {
+      console.log(`Deleted: ${dbVendor}`);
       res.json(dbVendor);
     });
   });
