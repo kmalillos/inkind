@@ -23,7 +23,7 @@ module.exports = function (app) {
         id: req.params.id
       }
     }).then(function (dbDonation) {
-      console.log(`Found: ${dbDonation}`);
+      console.log("Found: " + {dbDonation});
       res.json(dbDonation);
     });
   });
@@ -31,7 +31,7 @@ module.exports = function (app) {
   // POST route for saving a new donation
   app.post("/api/donation", function (req, res) {
     db.Donation.create(req.body).then(function (dbDonation) {
-      console.log(`Posted: ${dbDonation}`);
+      console.log("Posted: " + {dbDonation});
       res.json(dbDonation);
     });
   });
@@ -43,7 +43,7 @@ module.exports = function (app) {
         id: req.params.id
       }
     }).then(function (dbDonation) {
-      console.log(`Deleted ${dbDonation}`);
+      console.log("Deleted: " + {dbDonation});
       res.json(dbDonation);
     });
   });
@@ -57,7 +57,7 @@ module.exports = function (app) {
           id: req.body.id
         }
       }).then(function (dbDonation) {
-        console.log(`GUpdated: ${dbDonation}`);
+        console.log("Updated: " + {dbDonation});
         res.json(dbDonation);
       });
   });

@@ -3,25 +3,17 @@ module.exports = function (sequelize, DataTypes) {
     var Donation = sequelize.define("Donation", {
         type: {
             type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
+            allowNull: true,
         },
         note: {
             type: DataTypes.TEXT,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
+            allowNull: true,
         },
         date: {
             type: DataTypes.TEXT,
-            allowNull: true,
         },
         value: {
             type: DataTypes.TEXT,
-            allowNull: true,
         }
     });
 
