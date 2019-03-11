@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, Route } from "react-router-dom";
-import VendorList from "../pages/VendorList";
+import VendorList from "./pages/VendorList";
 
 const All = (props) => {
     return (
@@ -11,10 +11,6 @@ const All = (props) => {
             
             <Route exact path={`${props.match.url}/vendors`} component={VendorList} />
             
-            {" "}
-            {/* <Link to="/contact" role="button" className="btn btn-link"> */}
-                {/* Learn Less */}
-             {/* </Link> */}
 
         </div>
     )

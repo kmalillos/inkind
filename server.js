@@ -14,8 +14,8 @@ app.use(express.static("public"));
 
 // ROUTES
 // =============================================================
-require("./routes/api/vendor-routes.js")(app);
-require("./routes/api/donation-routes.js")(app);
+require("./routes/api/vendor-api.js")(app);
+require("./routes/api/donation-api.js")(app);
 
 // LISTENER
 // =============================================================
