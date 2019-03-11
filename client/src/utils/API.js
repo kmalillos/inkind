@@ -2,15 +2,16 @@ import axios from "axios";
 
 export default {
 
-  getVendors: function() {
+  // db.Vendors and Vendor Routes
+  findAllVendors: function() {
     return axios.get("/api/vendor");
   },
 
-  getVendor: function(id) {
+  findOneVendor: function(id) {
     return axios.get("/api/vendor/" + id);
   },
   
-  postVendor: function(vendorData) {
+  createVendor: function(vendorData) {
     return axios.post("/api/vendor", vendorData);
   },
 
@@ -18,15 +19,16 @@ export default {
     return axios.delete("/api/vendor/" + id);
   },
 
-  getDonations: function() {
+  // dd.Donations and Donation Routes
+  findAllDonations: function() {
     return axios.get("/api/donation");
   },
 
-  getDonation: function(id) {
+  findOneDonation: function(id) {
     return axios.get("/api/donation/" + id);
   },
   
-  postDonation: function(donationData) {
+  createDonation: function(donationData) {
     return axios.post("/api/donation", donationData);
   },
 
