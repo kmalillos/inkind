@@ -15,7 +15,10 @@ module.exports = function (sequelize, DataTypes) {
         value: {
             type: DataTypes.TEXT,
         }
-    });
+    }, {
+            // freezeTableName: true,
+            timestamps: false
+        });
 
     Donation.associate = function (models) {
         // We're saying that a Donation should belong to an Vendor

@@ -1,6 +1,7 @@
 module.exports = function (sequelize, DataTypes) {
 
   var Vendor = sequelize.define("Vendor", {
+    
     vendorName: {
       type: DataTypes.STRING,
       allowNull: true,
@@ -23,8 +24,10 @@ module.exports = function (sequelize, DataTypes) {
     email: {
       type: DataTypes.STRING,
     }
-
-  });
+  }, {
+      // freezeTableName: true,
+      timestamps: false
+    });
 
   Vendor.associate = function (models) {
     // Associating Vendor with Donation
