@@ -1,17 +1,94 @@
-import React from "react";
+import React, { Component } from "react";
+import API from "../utils/API"
 
-const Search = () => {
-    return (
-        <div>
-            <h1>Search</h1>
+class VendorSearch extends Component {
+    state = {
+        // Vendor
+        vendorName: "",
+        city: "",
+        state: "",
+        // Donations
+        donationType: ""
+    };
 
-            <p>Doggo ipsum aqua doggo boof smol borking doggo with a long snoot for pats blep, length boy most angery pupper I have ever seen. Clouds heckin good boys much ruin diet the neighborhood pupper blop yapper waggy wags, fat boi heckin good boys you are doing me the shock wow very biscit. Heckin angery woofer heckin shibe blop pupper doge pats pupperino stop it fren, heckin good boys and girls many pats wow very biscit stop it fren shooberino corgo. fat boi. Shibe waggy wags boofers big ol, heck.</p>
- 
-            <p>Extremely cuuuuuute such treat long woofer very jealous pupper heck extremely cuuuuuute shoob many pats, he made many woofs blep very jealous pupper long doggo shoob puggo. Wrinkler such treat boofers wow such tempt heckin good boys and girls bork, blep heckin ruff thicc doing me a frighten, puggo doge smol borking doggo with a long snoot for pats boof. pats fat boi heck. Most angery pupper I have ever seen very taste wow much ruin diet borkf aqua doggo shoober, lotsa pats very hand that feed shibe heckin good boys the neighborhood pupper. Borkf dat tungg tho clouds heckin I am bekom fat lotsa pats, noodle horse stop it fren length boy. Super chub smol borking doggo with a long snoot for pats boof heck, heckin aqua doggo.</p>
- 
-            <p>you are doing me a frighten. Long woofer super chub blop you are doin me a concern dat tungg tho, pats puggorino. You are doin me a concern ruff he made many woofs yapper, pupperino. Pats length boy such treat doggo boofers, sub woofer wow very biscit. Ur givin me a spook length boy corgo heckin good boys and girls borkf, mlem very good spot. Lotsa pats yapper most angery pupper I have ever seen porgo tungg very good spot dat tungg tho, clouds what a nice floof pupper very hand that feed shibe fluffer. Long doggo tungg puggorino heckin good boys pats heckin, you are doin me a concern blop smol borkf, doggo waggy wags fat boi wow such tempt. Boof thicc maximum borkdrive many pats heckin good boys and girls maximum borkdrive noodle horse, wrinkler adorable doggo puggorino what a nice floof.</p>
-        </div>
-    )
-}
+    componentDidMount() {
+        // this.findOneVendor();
+    };
 
-export default Search;
+    // findOneVendor = () => {
+    //     // CODE HERE
+    //     API.findOneVendor()
+    //     .then(res => console.log(res.data))
+    //     .catch(err => console.log(err));
+    // };
+
+
+    handleInputChange = event => {
+        const { name, value } = event.target;
+        this.setState({
+            [name]: value
+        });
+    };
+
+    render() {
+
+        return (
+            <div>
+                <h1>Search Vendor</h1>
+
+                <form>
+                    <label>Vendor Name</label> <br></br>
+                    <input
+                        value={this.state.vendorName}
+                        onChange={this.handleInputChange}
+                        name="vendorName"
+                        placeholder="Vendor Name"
+                    />
+
+                    <br></br>
+
+                    <label>City</label> <br></br>
+                    <input
+                        value={this.state.city}
+                        onChange={this.handleInputChange}
+                        name="city"
+                        placeholder="City"
+                    />
+
+                    <br></br>
+
+                    <label>State</label> <br></br>
+                    <input
+                        value={this.state.state}
+                        onChange={this.handleInputChange}
+                        name="state"
+                        placeholder="State"
+                    />
+                    
+                    <br></br>
+
+                    <label>Donation Type</label> <br></br>
+                    <input
+                        value={this.state.state}
+                        onChange={this.handleInputChange}
+                        name="donationType"
+                        placeholder="Donation Type"
+                    />
+
+                    <br></br>
+                    <br></br>
+
+                    <button
+                        // disabled={!(this.state.author && this.state.title)}
+                        onClick={this.handleFormSubmit}
+                    >
+                        Search
+                    </button>
+                </form>
+
+            </div>
+        )
+    }
+};
+
+export default VendorSearch;

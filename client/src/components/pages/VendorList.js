@@ -18,7 +18,19 @@ class VendorList extends Component{
 
     findAllVendors = () => {
         API.findAllVendors()
-        .then
+        .then(res => console.log(res.data[0].vendorName))
+        // .then(res =>
+        //     this.setState({
+        //         vendorName: res.data,
+        //         address: res.data,
+        //         city: res.data,
+        //         state: res.data,
+        //         zip: res.data,
+        //         phone: res.data,
+        //         email: res.data
+        //     })
+        // )
+        // .catch(err => console.log(err));
     };
 
     render() {
