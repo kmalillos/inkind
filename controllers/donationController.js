@@ -2,10 +2,13 @@ var db = require("../models")
 
 module.exports = {
 
+
     findAllDonations: function (req, res) {
         // Find all Donation and return them to the user with res.json
         db.Donation
-            .findAll({})
+            .findAll({
+                include: [db.Vendor]
+            })
             .then(function (dbDonation) {
                 console.log(`Found all Donations.`);
                 res.json(dbDonation);
@@ -18,7 +21,8 @@ module.exports = {
             .findOne({
                 where: {
                     id: req.params.id
-                }
+                },
+                include: [db.Vendor]
             })
             .then(function (dbDonation) {
                 console.log("Found: " + { dbDonation });

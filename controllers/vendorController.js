@@ -5,7 +5,9 @@ module.exports = {
     findAllVendors: function (req, res) {
         // Find all Vendor and return them to the user with res.json
         db.Vendor
-            .findAll({})
+            .findAll({
+                include: [db.Donation]
+            })
             .then(function (dbVendor) {
                 console.log(`Found all Vendors.`);
                 res.json(dbVendor);
@@ -18,7 +20,8 @@ module.exports = {
             .findOne({
                 where: {
                     id: req.params.id
-                }
+                },
+                include: [db.Donation]
             })
             .then(function (dbVendor) {
                 console.log("Found: " + { dbVendor });
