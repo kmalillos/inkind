@@ -25,6 +25,7 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
     }
   }, {
+      // underscored: true,
       // freezeTableName: true,
       timestamps: false
     });

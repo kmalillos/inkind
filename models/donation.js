@@ -1,7 +1,7 @@
 module.exports = function (sequelize, DataTypes) {
 
     var Donation = sequelize.define("Donation", {
-        type: {
+        donationType: {
             type: DataTypes.STRING,
             allowNull: true,
         },
@@ -10,12 +10,17 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: true,
         },
         date: {
-            type: DataTypes.TEXT,
+            type: DataTypes.STRING,
         },
-        value: {
-            type: DataTypes.TEXT,
-        }
+        donationValue: {
+            type: DataTypes.STRING,
+        },
+        // vendorID: {
+        //     type: DataTypes.INT,
+        //     allowNull: true,
+        // }
     }, {
+            // underscored: true,
             // freezeTableName: true,
             timestamps: false
         });
