@@ -34,10 +34,10 @@ class VendorSearch extends Component {
 
         return (
             <div>
-                <h1>Search Vendor</h1>
+                <h1>Search</h1>
 
                 <form>
-                    <label>Vendor Name</label> <br></br>
+                    <label>Search by Vendor Name</label> <br></br>
                     <input
                         value={this.state.vendorName}
                         onChange={this.handleInputChange}
@@ -47,7 +47,7 @@ class VendorSearch extends Component {
 
                     <br></br>
 
-                    <label>City</label> <br></br>
+                    <label>Search by City</label> <br></br>
                     <input
                         value={this.state.city}
                         onChange={this.handleInputChange}
@@ -57,7 +57,7 @@ class VendorSearch extends Component {
 
                     <br></br>
 
-                    <label>State</label> <br></br>
+                    <label>Search by State</label> <br></br>
                     <input
                         value={this.state.state}
                         onChange={this.handleInputChange}
@@ -67,7 +67,7 @@ class VendorSearch extends Component {
                     
                     <br></br>
 
-                    <label>Donation Type</label> <br></br>
+                    <label>Search by Donation Type</label> <br></br>
                     <input
                         value={this.state.state}
                         onChange={this.handleInputChange}

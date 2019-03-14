@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import API from "../../utils/API";
-import { VendorTable, VendorTableItem } from "../VendorTable";
+import API from "../utils/API";
+import { VendorTable, VendorTableItem } from "../components/VendorTable";
 
 class VendorList extends Component {
     state = {
