@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import API from "../utils/API"
 
-class VendorSearch extends Component {
+class Search extends Component {
     state = {
-        // Vendor
+        // DB.Vendors
         vendorName: "",
         city: "",
         state: "",
-        // Donations
+        // DB.Donationss
         donationType: ""
     };
 
@@ -34,8 +34,7 @@ class VendorSearch extends Component {
         event.preventDefault();
         console.log(event);
         
-    }
-
+    };
 
     render() {
 
@@ -94,7 +93,7 @@ class VendorSearch extends Component {
 
             </div>
         )
-    }
+    };
 };
 
-export default VendorSearch;
+export default Search;

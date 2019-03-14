@@ -34,7 +34,7 @@ class DonationList extends Component {
                         // console.log(donation);
                         return <DonationTableItem 
                             key={donation.id}
-                            // donationName={donation.donationName}
+                            // vendorName={donation.vendorName}
                             donationType={donation.donationType}
                             note={donation.note}
                             date={donation.date}

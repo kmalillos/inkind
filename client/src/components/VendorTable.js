@@ -1,6 +1,6 @@
 import React from "react";
 
-export function VendorTable ( {children} ) {
+export const VendorTable = ( {children} ) => {
     return (
         <div>
             <table className ="table">
@@ -21,9 +21,8 @@ export function VendorTable ( {children} ) {
     );
 }
 
-export function VendorTableItem (props) {
+export const VendorTableItem = (props) => {
     console.log(props);
-
     return (
         <>
             <tr>

@@ -1,6 +1,6 @@
 import React from "react";
 
-export function DonationTable ( {children} ) {
+export const DonationTable = ({children}) => {
     return (
         <div>
             <table className ="table">
@@ -21,9 +21,8 @@ export function DonationTable ( {children} ) {
     );
 }
 
-export function DonationTableItem (props) {
+export const DonationTableItem = (props) => {
     console.log(props);
-
     return (
         <>
             <tr>
