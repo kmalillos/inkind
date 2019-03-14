@@ -1,15 +1,10 @@
 import React, { Component } from "react";
-import API from "../../utils/API"
+import API from "../../utils/API";
+import { Table, TableItem } from "../Table";
 
-class VendorList extends Component{
+class VendorList extends Component {
     state = {
-        vendorName: "",
-        address: "",
-        city: "",
-        state: "",
-        zip: "",
-        phone: "",
-        email: ""
+        vendors: []
     };
 
     componentDidMount() {
@@ -18,28 +13,38 @@ class VendorList extends Component{
 
     findAllVendors = () => {
         API.findAllVendors()
-        .then(res => console.log(res.data[0].vendorName))
-        // .then(res =>
-        //     this.setState({
-        //         vendorName: res.data,
-        //         address: res.data,
-        //         city: res.data,
-        //         state: res.data,
-        //         zip: res.data,
-        //         phone: res.data,
-        //         email: res.data
-        //     })
-        // )
-        // .catch(err => console.log(err));
+            // .then(res => console.log(res.data))
+            .then(res =>{
+                // console.log(res.data);
+                this.setState({
+                    vendors: res.data
+                })
+            })
+            .catch(err => console.log(err));
     };
 
     render() {
-
         return (
             <div>
-                <h1>All Vendors</h1> 
+
+                <h1>All Vendors</h1>
+
+                <Table>
+                    {this.state.vendors.map(vendor => {
+                        // console.log(vendor);
+                        return <TableItem 
+                            key={vendor.id}
+                            vendorName={vendor.vendorName}
+                            city={vendor.city}
+                            state={vendor.state}
+                            phone={vendor.phone}
+                            email={vendor.email}
+                        />
+                    })}
+                </Table>
+
             </div>
-        )
+        );
     }
 };
 

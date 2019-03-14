@@ -15,10 +15,6 @@ module.exports = function (sequelize, DataTypes) {
         donationValue: {
             type: DataTypes.STRING,
         },
-        // vendorID: {
-        //     type: DataTypes.INT,
-        //     allowNull: true,
-        // }
     }, {
             // underscored: true,
             // freezeTableName: true,
