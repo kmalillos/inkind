@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import { Table, TableItem } from "../Table";
+import { VendorTable, VendorTableItem } from "../VendorTable";
 
 class VendorList extends Component {
     state = {
@@ -29,10 +29,10 @@ class VendorList extends Component {
 
                 <h1>All Vendors</h1>
 
-                <Table>
+                <VendorTable>
                     {this.state.vendors.map(vendor => {
                         // console.log(vendor);
-                        return <TableItem 
+                        return <VendorTableItem 
                             key={vendor.id}
                             vendorName={vendor.vendorName}
                             city={vendor.city}
@@ -41,7 +41,7 @@ class VendorList extends Component {
                             email={vendor.email}
                         />
                     })}
-                </Table>
+                </VendorTable>
 
             </div>
         );

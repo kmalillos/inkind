@@ -1,6 +1,6 @@
 import React from "react";
 
-export function Table ( {children} ) {
+export function VendorTable ( {children} ) {
     return (
         <div>
             <table className ="table">
@@ -14,14 +14,14 @@ export function Table ( {children} ) {
                     </tr>
                 </thead>  
                 <tbody>
-                        {children}
+                    {children}
                 </tbody>
             </table>
         </div>
     );
 }
 
-export function TableItem (props) {
+export function VendorTableItem (props) {
     console.log(props);
 
     return (

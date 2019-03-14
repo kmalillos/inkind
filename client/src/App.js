@@ -4,6 +4,7 @@ import NavBar from "./components/NavBar";
 import Home from "./components/pages/Home";
 import All from "./components/All";
 import VendorList from "./components/pages/VendorList";
+import DonationList from "./components/pages/DonationList";
 import Add from "./components/Add";
 import Search from "./components/Search";
 
@@ -17,6 +18,7 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route exact path="/all" component={All} />
           <Route exact path="/all/vendors" component={VendorList} />
+          <Route exact path="/all/donations" component={DonationList} />
           <Route exact path="/search" component={Search} />
           <Route exact path="/add" component={Add} />
         </>
