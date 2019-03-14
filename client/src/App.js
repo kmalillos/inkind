@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
-import All from "./components/All";
-import VendorList from "./pages/VendorList";
-import DonationList from "./pages/DonationList";
+import All from "./pages/All";
+import VendorList from "./components/VendorList";
+import DonationList from "./components/DonationList";
 import Search from "./pages/Search";
-import Add from "./components/Add";
+import Add from "./pages/Add";
 import NoMatch from "./pages/NoMatch"
 
 

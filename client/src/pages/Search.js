@@ -23,12 +23,19 @@ class VendorSearch extends Component {
     // };
 
 
-    handleInputChange = event => {
+    handleInputChange = (event) => {
         const { name, value } = event.target;
         this.setState({
             [name]: value
         });
     };
+
+    handleFormSubmit = (event) => {
+        event.preventDefault();
+        console.log(event);
+        
+    }
+
 
     render() {
 
@@ -69,7 +76,7 @@ class VendorSearch extends Component {
 
                     <label>Search by Donation Type</label> <br></br>
                     <input
-                        value={this.state.state}
+                        value={this.state.donationType}
                         onChange={this.handleInputChange}
                         name="donationType"
                         placeholder="Donation Type"
@@ -79,7 +86,6 @@ class VendorSearch extends Component {
                     <br></br>
 
                     <button
-                        // disabled={!(this.state.author && this.state.title)}
                         onClick={this.handleFormSubmit}
                     >
                         Search

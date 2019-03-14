@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, Route } from "react-router-dom";
-import VendorList from "../pages/VendorList";
-import DonationList from "../pages/DonationList";
+import VendorList from "../components/VendorList";
+import DonationList from "../components/DonationList";
 
 const All = (props) => {
     return (
