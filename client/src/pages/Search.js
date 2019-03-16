@@ -32,8 +32,8 @@ class Search extends Component {
 
     handleFormSubmit = (event) => {
         event.preventDefault();
-        console.log(event);
-        
+        console.log(this.state.vendorName);
+        // console.log(this.state.city);
     };
 
     render() {

@@ -15,10 +15,11 @@ class DonationList extends Component {
         API.findAllDonations()
             // .then(res => console.log(res.data))
             .then(res =>{
-                console.log(res.data);
+                // console.log("Donation Response: ", res.data);
                 this.setState({
                     donations: res.data
                 })
+                console.log("State.donation ", this.state)
             })
             .catch(err => console.log(err));
     };
@@ -34,7 +35,7 @@ class DonationList extends Component {
                         // console.log(donation);
                         return <DonationTableItem 
                             key={donation.id}
-                            // vendorName={donation.vendorName}
+                            vendorName={donation.Vendor.vendorName}
                             donationType={donation.donationType}
                             note={donation.note}
                             date={donation.date}
