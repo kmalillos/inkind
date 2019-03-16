@@ -1,11 +1,11 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import VendorList from "../components/VendorList";
 import DonationList from "../components/DonationList";
 
 const All = (props) => {
     return (
-        <Router>
+     
             <div>
 
                 <Link to={`${props.match.url}/vendors`} role="button" className="btn btn-info test">
@@ -22,13 +22,13 @@ const All = (props) => {
 
                 <br></br>
 
-            <Switch>
+    
                 <Route exact path={`${props.match.url}/vendors`} component={VendorList} />
                 <Route exact path={`${props.match.url}/donations`} component={DonationList} />
-            </Switch>
+
 
             </div>
-        </Router>
+    
 
     )
 }
