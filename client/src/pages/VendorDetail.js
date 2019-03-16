@@ -2,10 +2,14 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import VendorList from "../components/VendorList";
 
-class VendorPages extends Component {
+class VendorDetail extends Component {
     state = {
         vendors: []
     };
+
+    // componentDidMount(){
+    //     <p>Mounted</p> 
+    // }
 
     render() {
         return(
@@ -15,3 +19,5 @@ class VendorPages extends Component {
         )
     }
 }
+
+export default VendorDetail;

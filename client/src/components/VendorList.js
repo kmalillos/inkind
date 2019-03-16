@@ -14,7 +14,7 @@ class VendorList extends Component {
     findAllVendors = () => {
         API.findAllVendors()
             // .then(res => console.log(res.data))
-            .then(res =>{
+            .then(res => {
                 // console.log(res.data);
                 this.setState({
                     vendors: res.data
@@ -32,8 +32,9 @@ class VendorList extends Component {
                 <VendorTable>
                     {this.state.vendors.map(vendor => {
                         // console.log(vendor);
-                        return <VendorTableItem 
+                        return <VendorTableItem
                             key={vendor.id}
+                            vendorID={vendor.id}
                             vendorName={vendor.vendorName}
                             city={vendor.city}
                             state={vendor.state}

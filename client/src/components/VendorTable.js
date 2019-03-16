@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Link } from "react-router-dom";
 
 export const VendorTable = ( {children} ) => {
     return (
@@ -24,14 +25,18 @@ export const VendorTable = ( {children} ) => {
 export const VendorTableItem = (props) => {
     console.log(props);
     return (
-        <>
-            <tr>
-                <td>{props.vendorName}</td>
-                <td>{props.city}</td>
-                <td>{props.state}</td>
-                <td>{props.email}</td>
-                <td>{props.phone}</td>
-            </tr>
-        </>
+            <>
+                <tr>
+                    <td>
+                        <Link to={`/vendor/` + props.vendorID}>
+                            {props.vendorName}
+                        </Link>
+                    </td>
+                    <td>{props.city}</td>
+                    <td>{props.state}</td>
+                    <td>{props.email}</td>
+                    <td>{props.phone}</td>
+                </tr>
+            </>
     )
 }

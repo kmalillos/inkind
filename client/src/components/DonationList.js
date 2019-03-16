@@ -15,7 +15,7 @@ class DonationList extends Component {
         API.findAllDonations()
             // .then(res => console.log(res.data))
             .then(res =>{
-                // console.log("Donation Response: ", res.data);
+                // console.log("API.findAllDonations(): ", res.data);
                 this.setState({
                     donations: res.data
                 })
@@ -32,9 +32,10 @@ class DonationList extends Component {
 
                 <DonationTable>
                     {this.state.donations.map(donation => {
-                        // console.log(donation);
+                        // console.log("this.state.donations.map: ", donation);
                         return <DonationTableItem 
                             key={donation.id}
+                            vendorID={donation.Vendor.id}
                             vendorName={donation.Vendor.vendorName}
                             donationType={donation.donationType}
                             note={donation.note}

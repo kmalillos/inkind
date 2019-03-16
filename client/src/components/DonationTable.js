@@ -1,18 +1,19 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Link } from "react-router-dom";
 
-export const DonationTable = ({children}) => {
+export const DonationTable = ({ children }) => {
     return (
         <div>
-            <table className ="table">
+            <table className="table">
                 <thead>
                     <tr>
                         <th scope="col">Vendor Name</th>
-                        <th scope="col">Donation Type</th>  
-                        <th scope="col">Note</th>    
-                        <th scope="col">When</th>  
-                        <th scope="col">Value</th>    
+                        <th scope="col">Donation Type</th>
+                        <th scope="col">Note</th>
+                        <th scope="col">When</th>
+                        <th scope="col">Value</th>
                     </tr>
-                </thead>  
+                </thead>
                 <tbody>
                     {children}
                 </tbody>
@@ -22,11 +23,15 @@ export const DonationTable = ({children}) => {
 }
 
 export const DonationTableItem = (props) => {
-    // console.log(props);
+    // console.log("props: ", props);
     return (
         <>
             <tr>
-                <td>{props.vendorName}</td>
+                <td>
+                    <Link to={`/vendor/` + props.vendorID}>
+                        {props.vendorName}
+                    </Link>
+                </td>
                 <td>{props.donationType}</td>
                 <td>{props.note}</td>
                 <td>{props.date}</td>

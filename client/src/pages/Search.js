@@ -32,7 +32,7 @@ class Search extends Component {
 
     handleFormSubmit = (event) => {
         event.preventDefault();
-        console.log(this.state.vendorName);
+        console.log(this.state.vendorName, this.state.city, this.state.state, this.state.donationType);
         // console.log(this.state.city);
     };
 
