@@ -12,7 +12,7 @@ class Search extends Component {
     };
 
     componentDidMount() {
-        // this.findOneVendor();
+        // CODE HERE
     };
 
     // findOneVendor = () => {
@@ -33,8 +33,13 @@ class Search extends Component {
     handleFormSubmit = (event) => {
         event.preventDefault();
         console.log(this.state.vendorName, this.state.city, this.state.state, this.state.donationType);
+        this.search();
         // console.log(this.state.city);
     };
+
+    search = () => {
+        // search here
+    }
 
     render() {
 

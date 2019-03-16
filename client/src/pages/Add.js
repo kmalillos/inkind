@@ -1,27 +1,21 @@
 import React, { Component } from "react";
 import API from "../utils/API"
+import { Link } from "react-router-dom";
 
 class Add extends Component {
     state = {
-        // DB.Vendors
         vendorName: "",
+        address: "",
         city: "",
         state: "",
-        // DB.Donationss
-        donationType: ""
+        zip: "",
+        phone: "",
+        email: ""
     };
 
     componentDidMount() {
-        // this.findOneVendor();
+        // CODE HERE
     };
-
-    // findOneVendor = () => {
-    //     // CODE HERE
-    //     API.findOneVendor()
-    //     .then(res => console.log(res.data))
-    //     .catch(err => console.log(err));
-    // };
-
 
     handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -32,18 +26,40 @@ class Add extends Component {
 
     handleFormSubmit = (event) => {
         event.preventDefault();
-        console.log(event);
-        
+        this.createVendor();
     };
+
+    createVendor = () => {
+        if (this.state.vendorName) {
+            API.createVendor({
+                vendorName: this.state.vendorName,
+                address: this.state.address,
+                city: this.state.city,
+                state: this.state.state,
+                zip: this.state.zip,
+                phone: this.state.phone,
+                email: this.state.email
+            })
+                .then(res => {
+                    console.log("Created Vendor: ", res.data);
+                    this.goToVendorDetail();
+                    })
+                .catch(err => console.log(err));
+        }
+    }
+
+    goToVendorDetail = () => {
+        // go to new vendor page
+    }
 
     render() {
 
         return (
             <div>
-                <h1>Add</h1>
+                <h1>Add Vendor</h1>
 
                 <form>
-                    <label>Search by Vendor Name</label> <br></br>
+                    <label>Vendor Name</label> <br></br>
                     <input
                         value={this.state.vendorName}
                         onChange={this.handleInputChange}
@@ -53,7 +69,17 @@ class Add extends Component {
 
                     <br></br>
 
-                    <label>Search by City</label> <br></br>
+                    <label>Address</label> <br></br>
+                    <input
+                        value={this.state.address}
+                        onChange={this.handleInputChange}
+                        name="address"
+                        placeholder="Address"
+                    />
+
+                    <br></br>
+
+                    <label>City</label> <br></br>
                     <input
                         value={this.state.city}
                         onChange={this.handleInputChange}
@@ -63,22 +89,32 @@ class Add extends Component {
 
                     <br></br>
 
-                    <label>Search by State</label> <br></br>
+                    <label>State</label> <br></br>
                     <input
                         value={this.state.state}
                         onChange={this.handleInputChange}
                         name="state"
                         placeholder="State"
                     />
-                    
+
                     <br></br>
 
-                    <label>Search by Donation Type</label> <br></br>
+                    <label>Zip Code</label> <br></br>
                     <input
-                        value={this.state.donationType}
+                        value={this.state.zip}
                         onChange={this.handleInputChange}
-                        name="donationType"
-                        placeholder="Donation Type"
+                        name="zip"
+                        placeholder="Zip Code"
+                    />
+
+                    <br></br>
+
+                    <label>Phone Number</label> <br></br>
+                    <input
+                        value={this.state.phone}
+                        onChange={this.handleInputChange}
+                        name="phone"
+                        placeholder="Phone Number"
                     />
 
                     <br></br>
@@ -87,7 +123,7 @@ class Add extends Component {
                     <button
                         onClick={this.handleFormSubmit}
                     >
-                        Add
+                        Add Vendor
                     </button>
                 </form>
 
