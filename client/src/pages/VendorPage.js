@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import { DonationTable, DonationTableItem } from "../components/VendorDonations"
+// import DonationTableItem from "../components/VendorDonations"
+// import DeleteDonation from "./components/DeleteDonation"
 
 class VendorPage extends Component {
     state = {
@@ -22,10 +23,17 @@ class VendorPage extends Component {
                     vendor: res.data,
                     donations: res.data.Donations
                 })
-                console.log(res.data.Donations)
+                // console.log(res.data.Donations)
             })
             .catch(err => console.log(err));
     };
+
+    deleteDonation = (id) => {
+        API.deleteDonation(id)
+            .then(res => console.log("Deleted Donation"))
+            .catch(err => console.log(err));
+    }
+
 
     render() {
         return (
@@ -62,18 +70,57 @@ class VendorPage extends Component {
 
                 <h3>Donations</h3>
 
-                <DonationTable>
+                {/* <DonationTable>
                     {this.state.donations.map(donation => {
                         // console.log("this.state.donations.map: ", donation);
                         return <DonationTableItem
                             key={donation.id}
+                            id={donation.id}
                             donationType={donation.donationType}
                             note={donation.note}
                             date={donation.date}
                             donationValue={donation.donationValue}
                         />
                     })}
-                </DonationTable>
+                </DonationTable> */}
+
+                <div>
+                    <table className="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Donation Type</th>
+                                <th scope="col">Note</th>
+                                <th scope="col">When</th>
+                                <th scope="col">Value</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            {this.state.donations.map(donation => {
+                                return (
+                                    <tr>
+                                        <td>{donation.donationType}</td>
+                                        <td>{donation.note}</td>
+                                        <td>{donation.date}</td>
+                                        <td>${donation.donationValue}</td>
+                                        {/* <DonationTableItem
+                                            key={donation.id}
+                                            id={donation.id}
+                                            donationType={donation.donationType}
+                                            note={donation.note}
+                                            date={donation.date}
+                                            donationValue={donation.donationValue}
+                                        /> */}
+                                    </tr>
+                                );
+                            })}
+
+                        </tbody>
+                    </table>
+                </div>
+
+
 
             </div>
         )

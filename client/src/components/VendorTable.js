@@ -23,7 +23,7 @@ export const VendorTable = ( {children} ) => {
 }
 
 export const VendorTableItem = (props) => {
-    console.log(props);
+    // console.log(props);
     return (
             <>
                 <tr>
