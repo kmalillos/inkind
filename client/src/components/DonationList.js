@@ -19,7 +19,7 @@ class DonationList extends Component {
                 this.setState({
                     donations: res.data
                 })
-                console.log("State.donation ", this.state)
+                // console.log("State.donation ", this.state)
             })
             .catch(err => console.log(err));
     };

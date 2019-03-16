@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import VendorPageDonations from "../components/VendorPageDonations"
+import { DonationTable, DonationTableItem } from "../components/VendorDonations"
 
 class VendorPage extends Component {
     state = {
@@ -36,36 +36,44 @@ class VendorPage extends Component {
 
                 <h3>Contact Information</h3>
 
-                <h6>Address:</h6>
-                <p>{this.state.vendor.address}</p>
 
-                <h6>City:</h6>
-                <p>{this.state.vendor.city}</p>
-
-                <h6>State: </h6>
-                <p>{this.state.vendor.state}</p>
-
-                <h6>Zip:</h6>
-                <p>{this.state.vendor.zip}</p>
-
-                <h6>Phone:</h6>
-                <p>{this.state.vendor.phone}</p>
-
-                <h6>Email:</h6>
-                <p>{this.state.vendor.email}</p>
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Address</th>
+                            <th scope="col">City:</th>
+                            <th scope="col">State:</th>
+                            <th scope="col">Zip:</th>
+                            <th scope="col">Phone:</th>
+                            <th scope="col">Email:</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{this.state.vendor.address}</td>
+                            <td>{this.state.vendor.city}</td>
+                            <td>{this.state.vendor.state}</td>
+                            <td>{this.state.vendor.zip}</td>
+                            <td>{this.state.vendor.phone}</td>
+                            <td>{this.state.vendor.email}</td>
+                        </tr>
+                    </tbody>
+                </table>
 
                 <h3>Donations</h3>
 
-                {this.state.donations.map(donation => {
-                    // console.log("this.state.donations.map: ", donation);
-                    return <VendorPageDonations
-                        key={donation.id}
-                        donationType={donation.donationType}
-                        note={donation.note}
-                        date={donation.date}
-                        donationValue={donation.donationValue}
-                    />
-                })}
+                <DonationTable>
+                    {this.state.donations.map(donation => {
+                        // console.log("this.state.donations.map: ", donation);
+                        return <DonationTableItem
+                            key={donation.id}
+                            donationType={donation.donationType}
+                            note={donation.note}
+                            date={donation.date}
+                            donationValue={donation.donationValue}
+                        />
+                    })}
+                </DonationTable>
 
             </div>
         )
