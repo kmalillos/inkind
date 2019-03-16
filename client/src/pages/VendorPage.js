@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import API from "../utils/API";
+import VendorPageDonations from "../components/VendorPageDonations"
 
 class VendorPage extends Component {
     state = {
-        vendor: []
+        vendor: [],
+        donations: []
     };
 
     componentDidMount() {
@@ -17,9 +19,10 @@ class VendorPage extends Component {
             .then(res => {
                 // console.log("findOneVendor():", res.data);
                 this.setState({
-                    vendor: res.data
+                    vendor: res.data,
+                    donations: res.data.Donations
                 })
-                console.log(this.state)
+                console.log(res.data.Donations)
             })
             .catch(err => console.log(err));
     };
@@ -33,29 +36,37 @@ class VendorPage extends Component {
 
                 <h3>Contact Information</h3>
 
-                <h6>Address:</h6> 
+                <h6>Address:</h6>
                 <p>{this.state.vendor.address}</p>
 
                 <h6>City:</h6>
-                <p>{this.state.vendor.city}</p> 
+                <p>{this.state.vendor.city}</p>
 
                 <h6>State: </h6>
                 <p>{this.state.vendor.state}</p>
 
-                <h6>Zip:</h6> 
+                <h6>Zip:</h6>
                 <p>{this.state.vendor.zip}</p>
 
-                <h6>Phone:</h6> 
+                <h6>Phone:</h6>
                 <p>{this.state.vendor.phone}</p>
-                
-                <h6>Email:</h6> 
+
+                <h6>Email:</h6>
                 <p>{this.state.vendor.email}</p>
 
                 <h3>Donations</h3>
 
-                <p>List Donations Here</p>
+                {this.state.donations.map(donation => {
+                    // console.log("this.state.donations.map: ", donation);
+                    return <VendorPageDonations
+                        key={donation.id}
+                        donationType={donation.donationType}
+                        note={donation.note}
+                        date={donation.date}
+                        donationValue={donation.donationValue}
+                    />
+                })}
 
-                
             </div>
         )
     }
