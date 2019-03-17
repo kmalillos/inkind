@@ -1,22 +1,24 @@
 import React from "react";
 import { Route, Link } from "react-router-dom";
-import VendorList from "../components/VendorList";
-import DonationList from "../components/DonationList";
+import VendorList from "../components/All/VendorList";
+import DonationList from "../components/All/DonationList";
 
 const All = (props) => {
     return (
      
             <div>
 
-                <Link to={`${props.match.url}/vendors`} role="button">
+                <Link to={`${props.match.url}/vendors`} role="button" className="btn">
                     List All Vendors
                 </Link>
-                <span> - </span>
-                <Link to={`${props.match.url}/donations`} role="button">
+                
+                
+                <Link to={`${props.match.url}/donations`} role="button" className="btn">
                     List All Donations
                 </Link>
-                <span> - </span>
-                <Link to={`${props.match.url}`} role="button">
+                
+
+                <Link to={`${props.match.url}`} role="button" className="btn">
                     Hide
                 </Link>
                 

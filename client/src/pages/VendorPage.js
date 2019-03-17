@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 // import { Route, Link } from "react-router-dom";
 import API from "../utils/API";
-import VendorContactInfo from "../components/VendorContactInfo";
+import ContactInfo from "../components/VendorPage/ContactInfo";
 // import AddDonation from "../components/AddDonation";
-import { DonationTable, DonationTableItem } from "../components/VendorDonations";
+import { DonationTable, DonationTableItem } from "../components/VendorPage/Donations";
+
+
 
 class VendorPage extends Component {
     state = {
@@ -38,7 +40,7 @@ class VendorPage extends Component {
         event.preventDefault();
         // console.log(event);
         console.log("deleted: ", event.target.id);
-        if (window.confirm("Are you sure you want to delete this donation?")) {
+        if (window.confirm("Are you sure you want to delete?")) {
             API.deleteDonation(event.target.id)
                 .then(res => {
                     console.log("Deleted Donation");
@@ -60,7 +62,7 @@ class VendorPage extends Component {
 
                 <h3>Contact Information</h3>
 
-                <VendorContactInfo
+                <ContactInfo
                     key={this.state.vendor.id}
                     address={this.state.vendor.address}
                     city={this.state.vendor.city}
@@ -74,11 +76,14 @@ class VendorPage extends Component {
 
                 <h3>Donations</h3>
 
+
                 <button onClick={this.addDonation}>
                     Add a Donation
                 </button>
 
-                <br></br>
+                <p>
+                    <br></br>
+                </p>
 
                 <DonationTable>
                     {this.state.donations.map(donation => {

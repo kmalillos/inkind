@@ -1,6 +1,6 @@
 import React from "react";
 
-export const VendorContactInfo = (props) => {
+export const ContactInfo = (props) => {
 
     if (props.address || props.city || props.state || props.zip || props.phone || props.email ) {
         return (
@@ -40,4 +40,4 @@ export const VendorContactInfo = (props) => {
 
 };
 
-export default VendorContactInfo;
+export default ContactInfo;

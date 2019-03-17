@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import API from "../utils/API";
-import { DonationTable, DonationTableItem } from "../components/DonationTable";
+import API from "../../utils/API";
+import { DonationTable, DonationTableItem } from "./DonationTable";
 
 class DonationList extends Component {
     state = {
