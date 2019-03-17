@@ -33,11 +33,9 @@ class Search extends Component {
             .then(res => {
                 // console.log(res.data);
                 this.setState( { 
-                    // vendors: res.data,
-                    // donations: res.data[0].Donations
                     data: res.data
                 });
-                console.log(this.state.data);
+                // console.log(this.state.data);
             })
             .catch(err => console.log(err));
     };
@@ -49,9 +47,7 @@ class Search extends Component {
         .then(res => {
             // console.log(res.data);
             this.setState( { 
-                data: res.data,
-                // vendors: res.data,
-                // donations: res.data[0].Donations
+                data: res.data
             })
             // console.log(this.state.data);
         })
@@ -93,7 +89,7 @@ class Search extends Component {
                     </button>
                 </form>
 
-                {/* <br></br>
+                <br></br>
 
                 <form>
                     <label>Search by State</label> <br></br>
@@ -111,7 +107,7 @@ class Search extends Component {
 
                 <br></br>
 
-                <form>
+                {/* <form>
                     <label>Search by Donation Type</label> <br></br>
                     <input
                         value={this.state.donationType}

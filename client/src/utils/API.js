@@ -45,13 +45,13 @@ export default {
     return axios.get("/api/searchCity/" + city);
   },
 
-  // searchByState: function(state) {
-  //   return axios.get("/api/searchState/" + state);
-  // },
+  searchByState: function(state) {
+    return axios.get("/api/searchState/" + state);
+  },
 
-  // searchByType: function(donationType) {
-  //   return axios.get("/api/searchType/" + donationType);
-  // },
+  searchByType: function(donationType) {
+    return axios.get("/api/searchType/" + donationType);
+  },
 
 
 };

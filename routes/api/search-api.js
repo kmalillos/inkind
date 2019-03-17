@@ -4,7 +4,7 @@ module.exports = function(app) {
 
   app.get("/api/searchVendor/:vendorName", searchController.searchByVendor);
   app.get("/api/searchCity/:city", searchController.searchByCity);
-//   app.get("/api/searchState/:state", searchController.searchByState);
-//   app.get("/api/searchYype/:donationType", searchController.searchByType);
+  app.get("/api/searchState/:state", searchController.searchByState);
+  app.get("/api/searchType/:donationType", searchController.searchByType);
 
 };
