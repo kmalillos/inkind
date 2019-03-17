@@ -1,5 +1,6 @@
 var db = require("../models")
-
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken')
 
 module.exports = {
 
@@ -14,22 +15,27 @@ module.exports = {
     // },
 
     createUser: function (req, res) {
-        console.log(req.body);
-        db.User
-            .create({
-                username: req.body.username,
-                password: req.body.password
-            })
-            .then(function (dbUser) {
-                // res.redirect(307, "/api/login");
-                console.log("Created User: " + { dbUser });
-                res.json(dbUser);
-            })
-            .catch(function (err) {
-                console.log(err);
-                res.json(err);
-                // res.status(422).json(err.errors[0].message);
-            });
+
+        bcrypt.hash(req.body.password, 10, function (err, hash) {
+            if (err) {
+                return res.status(500), json({ error: err });
+            }
+            else {
+                db.User
+                    .create({
+                        username: req.body.username,
+                        password: hash
+                    })
+                    .then(function(dbUser) {
+                        console.log("Created User: " + { dbUser });
+                        res.json(dbUser);
+                    })
+                    .catch(function (err) {
+                        console.log(err);
+                        res.json(err);
+                    });
+            }
+        })
     },
 
 
