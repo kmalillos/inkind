@@ -10,6 +10,8 @@ import Search from "./pages/SearchPage";
 import AddVendor from "./pages/AddVendorPage";
 import VendorPage from "./pages/VendorPage";
 // import AddDonation from "./components/VendorPage/AddDonation";
+import SignUp from "./pages/SignUpPage";
+import Login from "./pages/LoginPage";
 import NoMatch from "./pages/NoMatchPage";
 
 
@@ -30,6 +32,8 @@ class App extends Component {
             <Route exact path="/add" component={AddVendor} />
             <Route path="/vendor/:id" component={VendorPage} />
             {/* <Route exact path="/vendor/:id/add" component={AddDonation} /> */}
+            <Route exact path="/signup" component={SignUp} />
+            <Route exact path="/login" component={Login} />
             <Route component={NoMatch} />
           </Switch>
         </>

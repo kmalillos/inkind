@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class Login extends Component {
+class SignUp extends Component {
 
     state = {
         username: "",
@@ -26,7 +26,7 @@ class Login extends Component {
     render() {
         return (
             <div>
-                <h1>Login</h1>
+                <h1>SignUp</h1>
 
                 <form>
                     <label>Username</label> <br></br>
@@ -54,7 +54,7 @@ class Login extends Component {
                     <button
                         onClick={this.handleFormSubmit}
                     >
-                        Login
+                        Sign Up
                     </button>
 
                 </form>
@@ -64,4 +64,4 @@ class Login extends Component {
 
 };
 
-export default Login;
+export default SignUp;
