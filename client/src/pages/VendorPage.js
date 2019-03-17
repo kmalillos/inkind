@@ -154,21 +154,22 @@ class VendorPage extends Component {
                         value={this.state.donationType}
                         onChange={this.handleInputChange}
                         name="donationType"
-                        placeholder="Donation Type">
-                            <option value="" disabled>Select Donation Type</option>
-                            <option>Attraction</option>
-                            <option>Celebrity (non-sports)</option>
-                            <option>Hotel</option>
-                            <option>Meal</option>
-                            <option>Miscellaneous</option>
-                            <option>Performing Arts</option>
-                            <option>Photo/Video</option>
-                            <option>Professional Service</option>
-                            <option>Recreational Transportation</option>
-                            <option>Sports</option>
-                            <option>Travel/Transportation</option>
-                            <option>Wheelchair/Medical Equipment</option>
-                        </select>
+                        placeholder="Donation Type"
+                    >
+                        <option value="" disabled>Select Donation Type</option>
+                        <option>Attraction</option>
+                        <option>Celebrity (non-sports)</option>
+                        <option>Hotel</option>
+                        <option>Meal</option>
+                        <option>Miscellaneous</option>
+                        <option>Performing Arts</option>
+                        <option>Photo/Video</option>
+                        <option>Professional Service</option>
+                        <option>Recreational Transportation</option>
+                        <option>Sports</option>
+                        <option>Travel/Transportation</option>
+                        <option>Wheelchair/Medical Equipment</option>
+                    </select>
 
                     <br></br>
 

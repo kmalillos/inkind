@@ -54,11 +54,11 @@ module.exports = {
             where: {
                 donationType: req.params.donationType
             },
-            // include: [db.Donation]
+            include: [db.Vendor]
         })
-        .then(function (dbVendor) {
-            console.log("Found: " + { dbVendor });
-            res.json(dbVendor);
+        .then(function (dbDonation) {
+            console.log("Found: " + { dbDonation });
+            res.json(dbDonation);
         })
         .catch(err => console.log(err));
     }
