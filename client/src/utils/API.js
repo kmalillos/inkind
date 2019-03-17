@@ -36,7 +36,7 @@ export default {
     return axios.delete("/api/donation/" + id);
   },
 
-  // searchRoutes
+  // Search Routes
   searchByVendor: function(vendorName) {
     return axios.get("/api/searchVendor/" + vendorName);
   },
@@ -53,5 +53,18 @@ export default {
     return axios.get("/api/searchType/" + donationType);
   },
 
+  //User Routes
+
+  createUser: function(userData){
+    return axios.post("/api/user/signup", userData);
+  },
+
+  loginUser: function(userData){
+    return axios.post("/api/user/login", userData);
+  },
+
+  deleteUser: function(userId){
+    return axios.delete("/api/user/" + userId);
+  },
 
 };
