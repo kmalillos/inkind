@@ -16,6 +16,7 @@ app.use(express.static("public"));
 // =============================================================
 require("./routes/api/vendor-api.js")(app);
 require("./routes/api/donation-api.js")(app);
+require("./routes/api/search-api.js")(app);
 
 // LISTENER
 // =============================================================

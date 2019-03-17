@@ -2,7 +2,6 @@ var db = require("../models")
 
 module.exports = {
 
-
     findAllDonations: function (req, res) {
         // Find all Donation and return them to the user with res.json
         db.Donation
