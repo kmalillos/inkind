@@ -37,7 +37,7 @@ class AddDonation extends Component {
             })
                 .then(res => {
                     console.log("Created Donation: ", res.data);
-                    })
+                })
                 .catch(err => console.log(err));
         } else {
             alert("Please enter required fields.")
@@ -48,25 +48,51 @@ class AddDonation extends Component {
 
         // console.log("Donation Form: ", this.props);
 
-        return(
-            <form>
-                    <label>Donation Type (Required)</label>  <br></br>
+        return (
+
+             <form>
+
+                    {/* <label>Donation Type (Required)</label>  <br></br>
                     <input
                         value={this.state.donationType}
                         onChange={this.handleInputChange}
                         name="donationType"
                         placeholder="Donation Type"
-                    />
+                    /> */}
+
+                    <br></br>
+
+                    <label>Donation Type (Required)</label>  <br></br>
+                    <select
+                        value={this.state.donationType}
+                        onChange={this.handleInputChange}
+                        name="donationType"
+                        placeholder="Donation Type">
+                            <option>Select Donation Type</option>
+                            <option>Attraction</option>
+                            <option>Celebrity (non-sports)</option>
+                            <option>Hotel</option>
+                            <option>Meal</option>
+                            <option>Miscellaneous</option>
+                            <option>Performing Arts</option>
+                            <option>Photo/Video</option>
+                            <option>Professional Service</option>
+                            <option>Recreational Transportation</option>
+                            <option>Sports</option>
+                            <option>Travel/Transportation</option>
+                            <option>Wheelchair/Medical Equipment</option>
+                        </select>
 
                     <br></br>
 
                     <label>Note (Required)</label>  <br></br>
-                    <input
+                    <textarea
                         value={this.state.note}
                         onChange={this.handleInputChange}
                         name="note"
                         placeholder="Note"
                     />
+
 
                     <br></br>
 
@@ -77,7 +103,7 @@ class AddDonation extends Component {
                         name="date"
                         placeholder="YYYY-MM-DD"
                     />
-                    
+
                     <br></br>
 
                     <label>Donation Value</label>  <br></br>

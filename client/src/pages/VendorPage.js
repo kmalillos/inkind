@@ -68,7 +68,7 @@ class VendorPage extends Component {
     };
 
     createDonation = () => {
-        // console.log(`Adding: ${this.state.VendorId} & ${this.state.donationType} & ${this.state.note}`)
+        console.log(`Adding: ${this.state.VendorId} & ${this.state.donationType} & ${this.state.note}`)
         if (this.state.VendorId && this.state.donationType && this.state.note) {
             API.createDonation({
                 VendorId: this.state.VendorId,
@@ -139,23 +139,40 @@ class VendorPage extends Component {
                 <Route exact path={`${this.props.match.url}/add`} component={AddDonation} /> */}
 
                 <form>
+
+                    <br></br>
+
                     <label>Donation Type (Required)</label>  <br></br>
-                    <input
+                    <select
                         value={this.state.donationType}
                         onChange={this.handleInputChange}
                         name="donationType"
-                        placeholder="Donation Type"
-                    />
+                        placeholder="Donation Type">
+                            <option value="" disabled>Select Donation Type</option>
+                            <option>Attraction</option>
+                            <option>Celebrity (non-sports)</option>
+                            <option>Hotel</option>
+                            <option>Meal</option>
+                            <option>Miscellaneous</option>
+                            <option>Performing Arts</option>
+                            <option>Photo/Video</option>
+                            <option>Professional Service</option>
+                            <option>Recreational Transportation</option>
+                            <option>Sports</option>
+                            <option>Travel/Transportation</option>
+                            <option>Wheelchair/Medical Equipment</option>
+                        </select>
 
                     <br></br>
 
                     <label>Note (Required)</label>  <br></br>
-                    <input
+                    <textarea
                         value={this.state.note}
                         onChange={this.handleInputChange}
                         name="note"
                         placeholder="Note"
                     />
+
 
                     <br></br>
 
@@ -169,7 +186,7 @@ class VendorPage extends Component {
 
                     <br></br>
 
-                    <label>Donation Value</label>  <br></br>
+                    <label>Donation Value (Required)</label>  <br></br>
                     <input
                         value={this.state.donationValue}
                         onChange={this.handleInputChange}
@@ -177,7 +194,9 @@ class VendorPage extends Component {
                         placeholder="Donation Value"
                     />
 
+                    <p>
                     <br></br>
+                    </p>
 
                     <button
                         onClick={this.handleFormSubmit}

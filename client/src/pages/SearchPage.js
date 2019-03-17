@@ -4,10 +4,13 @@ import { Table, TableItem } from "../components/Search/SearchResults";
 
 class Search extends Component {
     state = {
+        // form inputs
         vendorName: "",
         city: "",
         state: "",
         donationType: "",
+        // api results
+        data: [],
         vendors: [],
         donations: [],
     };
@@ -15,14 +18,6 @@ class Search extends Component {
     componentDidMount() {
         // CODE HERE
     };
-
-    // findOneVendor = () => {
-    //     // CODE HERE
-    //     API.findOneVendor()
-    //     .then(res => console.log(res.data))
-    //     .catch(err => console.log(err));
-    // };
-
 
     handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -38,10 +33,11 @@ class Search extends Component {
             .then(res => {
                 // console.log(res.data);
                 this.setState( { 
-                    vendors: res.data,
-                    donations: res.data[0].Donations
-                })
-                console.log(this.state.donations);
+                    // vendors: res.data,
+                    // donations: res.data[0].Donations
+                    data: res.data
+                });
+                console.log(this.state.data);
             })
             .catch(err => console.log(err));
     };
@@ -50,10 +46,16 @@ class Search extends Component {
         event.preventDefault();
         // console.log(this.state.vendorName);
         API.searchByCity(this.state.city)
-            .then(res => {
-                console.log(res.data)
+        .then(res => {
+            // console.log(res.data);
+            this.setState( { 
+                data: res.data,
+                // vendors: res.data,
+                // donations: res.data[0].Donations
             })
-            .catch(err => console.log(err));
+            // console.log(this.state.data);
+        })
+        .catch(err => console.log(err));
     };
 
 
@@ -129,14 +131,18 @@ class Search extends Component {
                 <h3>Search Results</h3>
 
                 <Table>
-                    {this.state.donations.map ( donation => {
-                        console.log("this.state.donations.map: ", donation);
+                    {this.state.data.map ( data => {
+                        // console.log("Data Map: ", data);
+                        // console.log("Vendor ID: ", data.id);
+                        // console.log("Vendor Name: ", data.vendorName);
+                        // console.log("Type: ", data.Donations[0].donationType);
+                        // console.log("Type: ", data.Donations[0].note);
                         return <TableItem 
-                            key={donation.id}
-                            vendorID={donation.VendorId}
-                            vendorName={this.state.vendorName}
-                            donationType={donation.donationType}
-                            note={donation.note}
+                            key={data.id}
+                            vendorID={data.id}
+                            vendorName={data.vendorName}
+                            donationType={data.Donations[0].donationType}
+                            note={data.Donations[0].note}
                         />
                     })}
                 </Table>
