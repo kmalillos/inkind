@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import VendorContactInfo from "../components/VendorContactInfo";
 // import AddDonation from "../components/AddDonation";
-import VendorDonations from "../components/VendorDonations";
+import { DonationTable, DonationTableItem } from "../components/VendorDonations";
 
 class VendorPage extends Component {
     state = {
@@ -36,8 +36,8 @@ class VendorPage extends Component {
 
     deleteDonation = (event) => {
         event.preventDefault();
-        // console.log(event.target.id);
-        // console.log("deleted: ", event.target.id);
+        // console.log(event);
+        console.log("deleted: ", event.target.id);
         if (window.confirm("Are you sure you want to delete this donation?")) {
             API.deleteDonation(event.target.id)
                 .then(res => {
@@ -61,13 +61,13 @@ class VendorPage extends Component {
                 <h3>Contact Information</h3>
 
                 <VendorContactInfo
-                        key={this.state.vendor.id}
-                        address={this.state.vendor.address}
-                        city={this.state.vendor.city}
-                        state={this.state.vendor.state}
-                        zip={this.state.vendor.zip}
-                        phone={this.state.vendor.phone}
-                        email={this.state.vendor.email}
+                    key={this.state.vendor.id}
+                    address={this.state.vendor.address}
+                    city={this.state.vendor.city}
+                    state={this.state.vendor.state}
+                    zip={this.state.vendor.zip}
+                    phone={this.state.vendor.phone}
+                    email={this.state.vendor.email}
                 />
 
                 <br></br>
@@ -80,39 +80,20 @@ class VendorPage extends Component {
 
                 <br></br>
 
-                <div>
-                    <table className="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Donation Type</th>
-                                <th scope="col">Note</th>
-                                <th scope="col">When</th>
-                                <th scope="col">Value</th>
-                                <th scope="col"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                <DonationTable>
+                    {this.state.donations.map(donation => {
+                        return <DonationTableItem
+                            key={donation.id}
+                            donationType={donation.donationType}
+                            note={donation.note}
+                            date={donation.date}
+                            donationValue={donation.donationValue}
+                            id={donation.id}
+                            onClick={this.deleteDonation}
+                        />
 
-                            {this.state.donations.map(donation => {
-
-                                return (
-                                    <tr key={donation.id}>
-                                        <td>{donation.donationType}</td>
-                                        <td>{donation.note}</td>
-                                        <td>{donation.date}</td>
-                                        <td>${donation.donationValue}</td>
-                                        <td>
-                                            <button onClick={this.deleteDonation} id={donation.id}>
-                                                X
-                                            </button>
-                                        </td>
-                                    </tr>
-                                );
-                            })}
-
-                        </tbody>
-                    </table>
-                </div>
+                    })}
+                </DonationTable>
 
             </div>
         )
