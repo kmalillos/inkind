@@ -2,7 +2,6 @@ import React from "react";
 import { Route, Link } from "react-router-dom";
 import VendorList from "../components/VendorList";
 import DonationList from "../components/DonationList";
-import { spawn } from "child_process";
 
 const All = (props) => {
     return (

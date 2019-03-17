@@ -7,8 +7,9 @@ import VendorList from "./components/VendorList";
 import VendorPage from "./pages/VendorPage";
 import DonationList from "./components/DonationList";
 import Search from "./pages/SearchPage";
-import Add from "./pages/AddPage";
-import NoMatch from "./pages/NoMatchPage"
+import AddVendor from "./pages/AddVendorPage";
+import NoMatch from "./pages/NoMatchPage";
+// import AddDonation from "./components/AddDonation";
 
 
 class App extends Component {
@@ -23,9 +24,10 @@ class App extends Component {
             <Route path="/all" component={All} />
             <Route exact path="/all/vendors" component={VendorList} />
             <Route exact path="/vendor/:id" component={VendorPage} />
+            {/* <Route exact path="/vendor/:id/add-donation" component={AddDonation} /> */}
             <Route exact path="/all/donations" component={DonationList} />
             <Route exact path="/search" component={Search} />
-            <Route exact path="/add" component={Add} />
+            <Route exact path="/add" component={AddVendor} />
             <Route component={NoMatch} />
           </Switch>
         </>

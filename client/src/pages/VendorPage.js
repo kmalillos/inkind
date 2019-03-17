@@ -1,5 +1,9 @@
 import React, { Component } from "react";
+// import { Route, Link } from "react-router-dom";
 import API from "../utils/API";
+import VendorContactInfo from "../components/VendorContactInfo";
+// import AddDonation from "../components/AddDonation";
+import VendorDonations from "../components/VendorDonations";
 
 class VendorPage extends Component {
     state = {
@@ -26,24 +30,28 @@ class VendorPage extends Component {
             .catch(err => console.log(err));
     };
 
+    addDonation = () => {
+        console.log("go to add donation")
+    };
+
     deleteDonation = (event) => {
         event.preventDefault();
         // console.log(event.target.id);
         // console.log("deleted: ", event.target.id);
         if (window.confirm("Are you sure you want to delete this donation?")) {
             API.deleteDonation(event.target.id)
-            .then(res => {
-                console.log("Deleted Donation");
-                this.findOneVendor();
-            })
-            .catch(err => console.log(err));
+                .then(res => {
+                    console.log("Deleted Donation");
+                    this.findOneVendor();
+                })
+                .catch(err => console.log(err));
         } else {
             this.findOneVendor();
         }
-    }
-
+    };
 
     render() {
+
         return (
             <div>
                 <h1>{this.state.vendor.vendorName}</h1>
@@ -52,31 +60,25 @@ class VendorPage extends Component {
 
                 <h3>Contact Information</h3>
 
+                <VendorContactInfo
+                        key={this.state.vendor.id}
+                        address={this.state.vendor.address}
+                        city={this.state.vendor.city}
+                        state={this.state.vendor.state}
+                        zip={this.state.vendor.zip}
+                        phone={this.state.vendor.phone}
+                        email={this.state.vendor.email}
+                />
 
-                <table className="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Address</th>
-                            <th scope="col">City:</th>
-                            <th scope="col">State:</th>
-                            <th scope="col">Zip:</th>
-                            <th scope="col">Phone:</th>
-                            <th scope="col">Email:</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>{this.state.vendor.address}</td>
-                            <td>{this.state.vendor.city}</td>
-                            <td>{this.state.vendor.state}</td>
-                            <td>{this.state.vendor.zip}</td>
-                            <td>{this.state.vendor.phone}</td>
-                            <td>{this.state.vendor.email}</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <br></br>
 
                 <h3>Donations</h3>
+
+                <button onClick={this.addDonation}>
+                    Add a Donation
+                </button>
+
+                <br></br>
 
                 <div>
                     <table className="table">
@@ -92,7 +94,7 @@ class VendorPage extends Component {
                         <tbody>
 
                             {this.state.donations.map(donation => {
-                                
+
                                 return (
                                     <tr key={donation.id}>
                                         <td>{donation.donationType}</td>
@@ -111,8 +113,6 @@ class VendorPage extends Component {
                         </tbody>
                     </table>
                 </div>
-
-
 
             </div>
         )

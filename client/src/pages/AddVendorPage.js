@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import API from "../utils/API"
 import { Redirect } from 'react-router-dom'
 
-class Add extends Component {
+class AddVendor extends Component {
     state = {
         vendorID: "",
         vendorName: "",
@@ -146,4 +146,4 @@ class Add extends Component {
     };
 };
 
-export default Add;
+export default AddVendor;
