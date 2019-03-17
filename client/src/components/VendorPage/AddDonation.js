@@ -52,16 +52,6 @@ class AddDonation extends Component {
 
              <form>
 
-                    {/* <label>Donation Type (Required)</label>  <br></br>
-                    <input
-                        value={this.state.donationType}
-                        onChange={this.handleInputChange}
-                        name="donationType"
-                        placeholder="Donation Type"
-                    /> */}
-
-                    <br></br>
-
                     <label>Donation Type (Required)</label>  <br></br>
                     <select
                         value={this.state.donationType}

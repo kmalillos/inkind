@@ -44,19 +44,19 @@ class AddVendor extends Component {
             })
                 .then(res => {
                     console.log("Created Vendor: ", res.data);
-                    this.setState( { vendorID: res.data.id});
+                    this.setState({ vendorID: res.data.id });
                     // this.goToVendorDetail();
                     this.setRedirect();
-                    })
+                })
                 .catch(err => console.log(err));
         }
     }
 
     setRedirect = () => {
         this.setState({
-          redirect: true
+            redirect: true
         })
-      }
+    }
 
     goToVendorDetail = () => {
         if (this.state.redirect) {
@@ -109,6 +109,65 @@ class AddVendor extends Component {
                         name="state"
                         placeholder="State"
                     />
+
+                    {/* <label>State</label>  <br></br>
+                    <select
+                        value={this.state.state}
+                        onChange={this.handleInputChange}
+                        name="donationType"
+                        placeholder="Donation Type">
+                            <option value="" disabled>Select State</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                    </select> */}
 
                     <br></br>
 

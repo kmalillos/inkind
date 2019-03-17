@@ -79,12 +79,19 @@ class VendorPage extends Component {
             })
                 .then(res => {
                     console.log("Created Donation: ", res.data);
-                    this.findOneVendor();
+                    // alert("Donation added!");
+                    this.reloadPage();
                 })
                 .catch(err => console.log(err));
         } else {
             alert("Please enter required fields.")
         }
+    }
+
+    reloadPage = () => {
+        console.log("Page Reloaded");
+        this.findOneVendor();
+        // CODE TO RESET FORMS
     }
 
     render() {
