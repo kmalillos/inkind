@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { Route, Link } from "react-router-dom";
+// import { Route, Link } from "react-router-dom";
 import API from "../utils/API";
 import ContactInfo from "../components/VendorPage/ContactInfo";
 import { DonationTable, DonationTableItem } from "../components/VendorPage/Donations";
-import AddDonation from "../components/VendorPage/AddDonation";
+// import AddDonation from "../components/VendorPage/AddDonation";
 
 
 
@@ -42,7 +42,7 @@ class VendorPage extends Component {
     deleteDonation = (event) => {
         event.preventDefault();
         // console.log(event);
-        console.log("deleted: ", event.target.id);
+        // console.log("deleted: ", event.target.id);
         if (window.confirm("Are you sure you want to delete?")) {
             API.deleteDonation(event.target.id)
                 .then(res => {

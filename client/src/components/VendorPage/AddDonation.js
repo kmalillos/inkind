@@ -1,3 +1,5 @@
+// Component doesn't work because it needs to grab VendorId value;
+
 import React, { Component } from "react";
 import API from "../../utils/API";
 

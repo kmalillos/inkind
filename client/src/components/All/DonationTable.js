@@ -11,8 +11,8 @@ export const DonationTable = ({ children }) => {
                         <th scope="col">Vendor Name</th>
                         <th scope="col">Donation Type</th>
                         <th scope="col">Note</th>
-                        <th scope="col">When</th>
-                        <th scope="col">Value</th>
+                        {/* <th scope="col">Date</th>
+                        <th scope="col">Value</th> */}
                     </tr>
                 </thead>
                 <tbody>
@@ -35,8 +35,8 @@ export const DonationTableItem = (props) => {
                 </td>
                 <td>{props.donationType}</td>
                 <td>{props.note}</td>
-                <td>{props.date}</td>
-                <td>${props.donationValue}</td>
+                {/* <td>{props.date}</td>
+                <td>${props.donationValue}</td> */}
             </tr>
         </>
     )

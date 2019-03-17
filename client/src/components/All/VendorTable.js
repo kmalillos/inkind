@@ -34,8 +34,8 @@ export const VendorTableItem = (props) => {
                     </td>
                     <td>{props.city}</td>
                     <td>{props.state}</td>
-                    <td>{props.email}</td>
                     <td>{props.phone}</td>
+                    <td>{props.email}</td>
                 </tr>
             </>
     )
