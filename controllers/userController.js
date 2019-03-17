@@ -16,40 +16,79 @@ module.exports = {
 
     createUser: function (req, res) {
 
-        bcrypt.hash(req.body.password, 10, function (err, hash) {
-            if (err) {
-                return res.status(500), json({ error: err });
-            }
-            else {
-                db.User
-                    .create({
-                        username: req.body.username,
-                        password: hash
+        db.User
+            .find({
+                where: {
+                    username: req.body.username
+                }
+            })
+            .then(function (username) {
+                // if (username.length >= 1 ) {
+                if (username) {
+                    return res.status(422).json({
+                        message: "Username exists!"
                     })
-                    .then(function(dbUser) {
-                        console.log("Created User: " + { dbUser });
-                        res.json(dbUser);
+                }
+                else {
+                    bcrypt.hash(req.body.password, 10, function (err, hash) {
+                        if (err) {
+                            return res.status(500), json({ error: err });
+                        }
+                        else {
+                            db.User
+                                .create({
+                                    username: req.body.username,
+                                    password: hash
+                                })
+                                .then(function (dbUser) {
+                                    console.log("Created User: " + { dbUser });
+                                    res.json(dbUser);
+                                })
+                                .catch(function (err) {
+                                    console.log(err);
+                                    res.json(err);
+                                });
+                        }
                     })
-                    .catch(function (err) {
-                        console.log(err);
-                        res.json(err);
-                    });
-            }
-        })
+                }
+            })
     },
 
 
-    findUser: function (req, res) {
+    loginUser: function (req, res) {
+
         db.User
             .findOne({
                 where: {
-                    username: req.params.username
+                    username: req.body.username
                 }
             })
             .then(function (dbUser) {
-                console.log("Found: " + { dbUser });
-                // bycrypt.compare password
-                res.json(dbUser);
+                if (dbUser < 1 ) {
+                    return res.status(401).json({
+                        message: "Authentication failed!"
+                    })
+                }
+
+                bcrypt.compare(req.body.password, dbUser.password, function(err, result) {
+                    if (err) {
+                        return res.status(401).json({
+                            message: "Authentication failed!"
+                        })
+                    };
+                    if (result) {
+                        return res.status(200).json({
+                            message: "Authentication successful"
+                        })
+                    };
+                    return res.status(401).json({
+                        message: "Authentication failed!"
+                    })
+                })
+            })
+            .catch(function (err) {
+                console.log(err);
+                res.json(err);
             });
     },
 
