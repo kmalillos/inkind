@@ -70,9 +70,9 @@ module.exports = {
                                 username: dbUser.username
                             },
                             secretOrPrivateKey,
-                            // {
-                            //     expiresIn: "1h"
-                            // },
+                            {
+                                expiresIn: "1h"
+                            },
                         )
                         return res.status(200).json({
                             message: "Authentication successful",

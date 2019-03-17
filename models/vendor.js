@@ -4,7 +4,6 @@ module.exports = function (sequelize, DataTypes) {
     
     vendorName: {
       type: DataTypes.STRING,
-      allowNull: true,
     },
     address: {
       type: DataTypes.STRING,
