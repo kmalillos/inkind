@@ -30,13 +30,16 @@ class VendorPage extends Component {
         event.preventDefault();
         // console.log(event.target.id);
         // console.log("deleted: ", event.target.id);
-        alert("Are you sure?");
-        API.deleteDonation(event.target.id)
+        if (window.confirm("Are you sure you want to delete this donation?")) {
+            API.deleteDonation(event.target.id)
             .then(res => {
                 console.log("Deleted Donation");
                 this.findOneVendor();
             })
             .catch(err => console.log(err));
+        } else {
+            this.findOneVendor();
+        }
     }
 
 

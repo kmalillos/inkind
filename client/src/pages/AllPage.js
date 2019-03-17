@@ -2,24 +2,25 @@ import React from "react";
 import { Route, Link } from "react-router-dom";
 import VendorList from "../components/VendorList";
 import DonationList from "../components/DonationList";
+import { spawn } from "child_process";
 
 const All = (props) => {
     return (
      
             <div>
 
-                <Link to={`${props.match.url}/vendors`} role="button" className="btn btn-info test">
+                <Link to={`${props.match.url}/vendors`} role="button">
                     List All Vendors
                 </Link>
-
-                <Link to={`${props.match.url}/donations`} role="button" className="btn btn-info">
+                <span> - </span>
+                <Link to={`${props.match.url}/donations`} role="button">
                     List All Donations
                 </Link>
-
-                <Link to={`${props.match.url}`} role="button" className="btn btn-info">
+                <span> - </span>
+                <Link to={`${props.match.url}`} role="button">
                     Hide
                 </Link>
-
+                
                 <br></br>
 
     
