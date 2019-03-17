@@ -11,9 +11,11 @@ module.exports = function (sequelize, DataTypes) {
         },
         date: {
             type: DataTypes.STRING,
+            allowNull: true,
         },
         donationValue: {
             type: DataTypes.STRING,
+            allowNull: true,
         },
     }, {
             // underscored: true,

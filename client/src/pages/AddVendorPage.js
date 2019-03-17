@@ -72,7 +72,7 @@ class AddVendor extends Component {
                 <h1>Add Vendor</h1>
 
                 <form>
-                    <label>Vendor Name</label> <br></br>
+                    <label>Vendor Name (Required)</label> <br></br>
                     <input
                         value={this.state.vendorName}
                         onChange={this.handleInputChange}
