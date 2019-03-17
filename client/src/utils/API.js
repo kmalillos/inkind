@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default {
 
-  // db.Vendors and Vendor Routes
+  // Vendor Routes
   findAllVendors: function() {
     return axios.get("/api/vendor");
   },
@@ -19,7 +19,7 @@ export default {
     return axios.delete("/api/vendor/" + id);
   },
 
-  // dd.Donations and Donation Routes
+  // Donation Routes
   findAllDonations: function() {
     return axios.get("/api/donation");
   },
@@ -35,6 +35,23 @@ export default {
   deleteDonation: function(id) {
     return axios.delete("/api/donation/" + id);
   },
+
+  // searchRoutes
+  searchByVendor: function(vendorName) {
+    return axios.get("/api/searchVendor/" + vendorName);
+  },
+
+  searchByCity: function(city) {
+    return axios.get("/api/searchCity/" + city);
+  },
+
+  // searchByState: function(state) {
+  //   return axios.get("/api/searchState/" + state);
+  // },
+
+  // searchByType: function(donationType) {
+  //   return axios.get("/api/searchType/" + donationType);
+  // },
 
 
 };

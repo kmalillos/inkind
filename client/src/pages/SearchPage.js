@@ -1,14 +1,15 @@
 import React, { Component } from "react";
-// import API from "../utils/API"
+import API from "../utils/API";
+import { Table, TableItem } from "../components/Search/SearchResults";
 
 class Search extends Component {
     state = {
-        // DB.Vendors
         vendorName: "",
         city: "",
         state: "",
-        // DB.Donationss
-        donationType: ""
+        donationType: "",
+        vendors: [],
+        donations: [],
     };
 
     componentDidMount() {
@@ -30,16 +31,31 @@ class Search extends Component {
         });
     };
 
-    handleFormSubmit = (event) => {
+    searchByVendor = (event) => {
         event.preventDefault();
-        console.log(this.state.vendorName, this.state.city, this.state.state, this.state.donationType);
-        this.search();
-        // console.log(this.state.city);
+        // console.log(this.state.vendorName);
+        API.searchByVendor(this.state.vendorName)
+            .then(res => {
+                // console.log(res.data);
+                this.setState( { 
+                    vendors: res.data,
+                    donations: res.data[0].Donations
+                })
+                console.log(this.state.donations);
+            })
+            .catch(err => console.log(err));
     };
 
-    search = () => {
-        // search here
-    }
+    searchByCity = (event) => {
+        event.preventDefault();
+        // console.log(this.state.vendorName);
+        API.searchByCity(this.state.city)
+            .then(res => {
+                console.log(res.data)
+            })
+            .catch(err => console.log(err));
+    };
+
 
     render() {
 
@@ -55,9 +71,14 @@ class Search extends Component {
                         name="vendorName"
                         placeholder="Vendor Name"
                     />
+                    <button onClick={this.searchByVendor}>
+                        Search
+                    </button>
+                </form>
 
-                    <br></br>
+                <br></br>
 
+                <form>
                     <label>Search by City</label> <br></br>
                     <input
                         value={this.state.city}
@@ -65,9 +86,14 @@ class Search extends Component {
                         name="city"
                         placeholder="City"
                     />
+                    <button onClick={this.searchByCity}>
+                        Search
+                    </button>
+                </form>
 
-                    <br></br>
+                {/* <br></br>
 
+                <form>
                     <label>Search by State</label> <br></br>
                     <input
                         value={this.state.state}
@@ -75,9 +101,15 @@ class Search extends Component {
                         name="state"
                         placeholder="State"
                     />
-                    
-                    <br></br>
+                    <button onClick={this.searchByState}>
+                        Search
+                    </button>
+                </form>
 
+
+                <br></br>
+
+                <form>
                     <label>Search by Donation Type</label> <br></br>
                     <input
                         value={this.state.donationType}
@@ -85,16 +117,29 @@ class Search extends Component {
                         name="donationType"
                         placeholder="Donation Type"
                     />
-
-                    <br></br>
-                    <br></br>
-
-                    <button
-                        onClick={this.handleFormSubmit}
-                    >
+                    <button onClick={this.searchByType}>
                         Search
                     </button>
-                </form>
+                </form> */}
+
+                <p>
+                    <br></br>
+                </p>
+
+                <h3>Search Results</h3>
+
+                <Table>
+                    {this.state.donations.map ( donation => {
+                        console.log("this.state.donations.map: ", donation);
+                        return <TableItem 
+                            key={donation.id}
+                            vendorID={donation.VendorId}
+                            vendorName={this.state.vendorName}
+                            donationType={donation.donationType}
+                            note={donation.note}
+                        />
+                    })}
+                </Table>
 
             </div>
         )
