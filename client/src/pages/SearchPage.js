@@ -28,28 +28,28 @@ class Search extends Component {
 
     searchByVendor = (event) => {
         event.preventDefault();
-        // console.log(this.state.vendorName);
+        console.log(this.state.vendorName);
         API.searchByVendor(this.state.vendorName)
             .then(res => {
                 // console.log(res.data);
                 this.setState({
                     data: res.data
                 });
-                // console.log(this.state.data);
+                console.log(this.state.data);
             })
             .catch(err => console.log(err));
     };
 
     searchByCity = (event) => {
         event.preventDefault();
-        // console.log(this.state.vendorName);
+        console.log(this.state.city);
         API.searchByCity(this.state.city)
             .then(res => {
                 // console.log(res.data);
                 this.setState({
                     data: res.data
                 })
-                // console.log(this.state.data);
+                console.log(this.state.data);
             })
             .catch(err => console.log(err));
     };
@@ -63,7 +63,7 @@ class Search extends Component {
                 this.setState({
                     data: res.data
                 })
-                // console.log(this.state.data);
+                console.log(this.state.data);
             })
             .catch(err => console.log(err));
     };
@@ -224,17 +224,17 @@ class Search extends Component {
 
                 <Table>
                     {this.state.data.map(data => {
-                        // console.log("Data Map: ", data);
-                        // console.log("Vendor ID: ", data.id);
-                        // console.log("Vendor Name: ", data.vendorName);
+                        console.log("Data Map: ", data);
+                        console.log("Vendor ID: ", data.id);
+                        console.log("Vendor Name: ", data.vendorName);
                         // console.log("Type: ", data.Donations[0].donationType);
                         // console.log("Type: ", data.Donations[0].note);
                         return <TableItem
                             key={data.id}
                             vendorID={data.id}
                             vendorName={data.vendorName}
-                            donationType={data.Donations[0].donationType}
-                            note={data.Donations[0].note}
+                            // donationType={data.Donations[0].donationType}
+                            // note={data.Donations[0].note}
                         />
                     })}
                 </Table>
