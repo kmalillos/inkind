@@ -1,21 +1,11 @@
 var db = require("../models")
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
+const secretOrPrivateKey = "secretpassword";
 
 module.exports = {
 
-    // createUser: function (req, res) {
-    //     console.log(req.body);
-    //     db.User
-    //         .create(req.body)
-    //         .then(function (dbUser) {
-    //             console.log("Posted: " + { dbUser });
-    //             res.json(dbUser);
-    //         });
-    // },
-
     createUser: function (req, res) {
-
         db.User
             .find({
                 where: {
@@ -54,9 +44,7 @@ module.exports = {
             })
     },
 
-
     loginUser: function (req, res) {
-
         db.User
             .findOne({
                 where: {
@@ -64,21 +52,31 @@ module.exports = {
                 }
             })
             .then(function (dbUser) {
-                if (dbUser < 1 ) {
+                if (dbUser < 1) {
                     return res.status(401).json({
                         message: "Authentication failed!"
                     })
                 }
-
-                bcrypt.compare(req.body.password, dbUser.password, function(err, result) {
+                bcrypt.compare(req.body.password, dbUser.password, function (err, result) {
                     if (err) {
                         return res.status(401).json({
                             message: "Authentication failed!"
                         })
                     };
                     if (result) {
+                        const token = jwt.sign(
+                            {
+                                id: dbUser.id,
+                                username: dbUser.username
+                            },
+                            secretOrPrivateKey,
+                            // {
+                            //     expiresIn: "1h"
+                            // },
+                        )
                         return res.status(200).json({
-                            message: "Authentication successful"
+                            message: "Authentication successful",
+                            token: token
                         })
                     };
                     return res.status(401).json({
