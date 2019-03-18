@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import API from "../utils/API"
-import { Redirect } from 'react-router-dom'
+import API from "../utils/API";
+import { Redirect } from 'react-router-dom';
 
 class AddVendor extends Component {
     state = {
@@ -45,7 +45,6 @@ class AddVendor extends Component {
                 .then(res => {
                     console.log("Created Vendor: ", res.data);
                     this.setState({ vendorID: res.data.id });
-                    // this.goToVendorDetail();
                     this.setRedirect();
                 })
                 .catch(err => console.log(err));
@@ -57,12 +56,11 @@ class AddVendor extends Component {
     setRedirect = () => {
         this.setState({
             redirect: true
-        })
+        });
     }
 
-    goToVendorDetail = () => {
+    redirectPage = () => {
         if (this.state.redirect) {
-            console.log("Go to new page");
             return <Redirect to={`/vendor/${this.state.vendorID}`} />
         }
     }
@@ -189,7 +187,7 @@ class AddVendor extends Component {
                     <br></br>
                     <br></br>
 
-                    {this.goToVendorDetail()}
+                    {this.redirectPage()}
                     <button
                         onClick={this.handleFormSubmit}
                     >

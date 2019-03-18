@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from 'react-router-dom';
 import API from "../utils/API"
 
 class Login extends Component {
@@ -6,11 +7,7 @@ class Login extends Component {
     state = {
         username: "",
         password: "",
-        // token: ""
-    };
-
-    componentDidMount() {
-        // CODE HERE
+        redirect: false
     };
 
     handleInputChange = (event) => {
@@ -33,13 +30,28 @@ class Login extends Component {
             })
                 .then( res => {
                     // console.log("Logged In! ", res.data);
-                    localStorage.setItem('jwt-auth')
+                    localStorage.setItem('jwt-auth', res.data.token);
+                    this.setRedirect();
                 })
                 .catch(err => console.log(err));
         } else {
             alert("Missing input from username or password.")
         }
     };
+
+    setRedirect = () => {
+        this.setState({
+            redirect: true
+        })
+        
+    }
+
+    redirectPage = () => {
+        if (this.state.redirect) {
+            return <Redirect to={`/home`} />
+        }
+    }
+
 
     render() {
         return (
@@ -70,6 +82,7 @@ class Login extends Component {
                         <br></br>
                     </p>
 
+                    {this.redirectPage()}
                     <button
                         onClick={this.handleFormSubmit}
                     >

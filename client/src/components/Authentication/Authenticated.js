@@ -18,6 +18,7 @@ class Authenticated extends Component {
 
     componentDidMount() {
         const jwt  = getJwt();
+        
         if(!jwt){
             this.props.history.push('/login');
         }
@@ -31,13 +32,10 @@ class Authenticated extends Component {
             })
         })
         .catch(err => {
+            console.log(err);
             localStorage.removeItem('jwt-auth');
             this.props.history.push('/login');
         })
-        // .catch(err => {
-        //     console.log(err);
-        //     this.props.history.push('/login');
-        // });
     }
 
     render() {
