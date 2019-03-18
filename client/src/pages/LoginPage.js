@@ -6,7 +6,7 @@ class Login extends Component {
     state = {
         username: "",
         password: "",
-        token: ""
+        // token: ""
     };
 
     componentDidMount() {
@@ -31,13 +31,17 @@ class Login extends Component {
                 username: this.state.username,
                 password: this.state.password,
             })
-                .then(res => {
-                    console.log("Logged In: ", res.data);
-                    this.setState({ 
-                        username: res.data.username,
-                        password: res.data.password,
-                        token: res.data.token,
-                    });
+                // .then(res => {
+                //     console.log("Logged In: ", res.data);
+                //     this.setState({ 
+                //         username: res.data.username,
+                //         password: res.data.password,
+                //         token: res.data.token,
+                //     });
+                // })
+                .then( res => {
+                    console.log("Logged In! ", res.data);
+                    localStorage.setItem('jwt-auth', res.data.token)
                 })
                 .catch(err => console.log(err));
         } else {

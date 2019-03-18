@@ -1,7 +1,9 @@
 var db = require("../models")
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const secretOrPrivateKey = "secretpassword";
+var bcrypt = require('bcrypt');
+var jwt = require('jsonwebtoken');
+// var dotenv = require('dotenv');
+// dotenv.config();
+var secretOrPrivateKey = "secretpassword";
 
 module.exports = {
 
@@ -104,8 +106,13 @@ module.exports = {
             });
     },
 
-    protected: function (req, res) {
-        res.send("Protected route!")
-    },
+    // protected: function (req, res) {
+    //     res.send("Protected route!")
+    // },
+
+    
+    getUser: function (req, res) {
+        return res.json(req.user);
+    }
 
 };

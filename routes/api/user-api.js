@@ -9,6 +9,8 @@ module.exports = function(app) {
     
     app.delete("/api/user/:id", userController.deleteUser);
 
-    app.get("/api/user/protected", checkAuth, userController.protected);
+    // app.get("/api/user/protected", checkAuth, userController.protected);
+
+    app.get("/api/user/getUser", checkAuth, userController.getUser);
 
 };
