@@ -4,7 +4,7 @@ import NavBar from "./components/NavBar";
 import SignUp from "./pages/SignUpPage";
 import Login from "./pages/LoginPage";
 import Authenticated from "./components/Authentication/Authenticated";
-import Home from "./pages/HomePage";
+import Home from "./pages/HomePage/Home";
 import All from "./pages/AllPage";
 import VendorList from "./components/All/VendorList";
 import DonationList from "./components/All/DonationList";
@@ -25,7 +25,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/login" component={Login} />
-            <Authenticated>
+            {/* <Authenticated> */}
               <Route exact path="/" component={Home} />
               <Route path="/home" component={Home} />
               <Route path="/all" component={All} />
@@ -36,7 +36,7 @@ class App extends Component {
               <Route exact path="/add" component={AddVendor} />
               <Route path="/vendor/:id" component={VendorPage} />
               {/* <Route exact path="/vendor/:id/add" component={AddDonation} /> */}
-            </Authenticated>
+            {/* </Authenticated> */}
             <Route component={NoMatch} />
           </Switch>
         </>

@@ -33,7 +33,10 @@ class Login extends Component {
                     localStorage.setItem('jwt-auth', res.data.token);
                     this.setRedirect();
                 })
-                .catch(err => console.log(err));
+                .catch(err => {
+                    console.log(err);
+                    alert("Login Failed.")
+                });
         } else {
             alert("Missing input from username or password.")
         }
@@ -51,7 +54,6 @@ class Login extends Component {
             return <Redirect to={`/home`} />
         }
     }
-
 
     render() {
         return (
