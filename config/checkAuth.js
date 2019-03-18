@@ -1,16 +1,15 @@
 const jwt = require('jsonwebtoken');
-const secretOrPrivateKey = "secretpassword";
-// require("dotenv").config();
+var dotenv = require('dotenv');
+dotenv.config();
 
 module.exports = (req, res, next) => {
     try {
         console.log('Authorization successful!');
 
         const token = req.headers.authorization.split(" ")[1];
-        // const token = req.headers.authorization;
-        console.log(token);
+        // console.log(token);
 
-        const decoded = jwt.verify(token, secretOrPrivateKey);
+        const decoded = jwt.verify(token, process.env.secretOrPrivateKey);
         req.userData = decoded; 
         next();
     }

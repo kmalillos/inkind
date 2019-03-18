@@ -31,17 +31,9 @@ class Login extends Component {
                 username: this.state.username,
                 password: this.state.password,
             })
-                // .then(res => {
-                //     console.log("Logged In: ", res.data);
-                //     this.setState({ 
-                //         username: res.data.username,
-                //         password: res.data.password,
-                //         token: res.data.token,
-                //     });
-                // })
                 .then( res => {
-                    console.log("Logged In! ", res.data);
-                    localStorage.setItem('jwt-auth', res.data.token)
+                    // console.log("Logged In! ", res.data);
+                    localStorage.setItem('jwt-auth')
                 })
                 .catch(err => console.log(err));
         } else {
