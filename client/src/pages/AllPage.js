@@ -9,31 +9,27 @@ const All = (props) => {
 
         <div>
 
-            {/* <Container>
+            <Container>
                 <Row>
                     <Col></Col>
-
                     <Col>
                         <Card style={{ width: '18rem' }}>
                             <Card.Img variant="top" src="holder.js/100px180" />
                             <Card.Body>
                                 <Card.Title>Vendors</Card.Title>
-                                <Link to={`/${props.match.url}/vendors`} className="btn btn-info">List All by Vendor</Link>
+                                <Link to={`${props.match.url}/vendors`} className="btn btn-info">List All by Vendor</Link>
                             </Card.Body>
                         </Card>
                     </Col>
-
-
                     <Col>
                         <Card style={{ width: '18rem' }}>
                             <Card.Img variant="top" src="holder.js/100px180" />
                             <Card.Body>
                                 <Card.Title>Donations</Card.Title>
-                                <Link to={`/${props.match.url}/donations`} className="btn btn-info">List All by Donations</Link>
+                                <Link to={`${props.match.url}/donations`} className="btn btn-info">List All by Donations</Link>
                             </Card.Body>
                         </Card>
                     </Col>
-
                     <Col></Col>
                 </Row>
             </Container>
@@ -41,17 +37,17 @@ const All = (props) => {
             <Container>
                 <Row>
                     <Col></Col>
+                    <Col></Col>
+                    <Col></Col>
                     <Col>
                         <Link to={`${props.match.url}`} role="button" className="btn">
                             Hide
                         </Link>
                     </Col>
-                    <Col></Col>
-                    <Col></Col>
                 </Row>
-            </Container> */}
+            </Container>
 
-            <Link to={`${props.match.url}/vendors`} role="button" className="btn">
+            {/* <Link to={`${props.match.url}/vendors`} role="button" className="btn">
                 List All Vendors
                 </Link>
 
@@ -63,7 +59,7 @@ const All = (props) => {
 
             <Link to={`${props.match.url}`} role="button" className="btn">
                 Hide
-                </Link>
+                </Link> */}
 
             <br></br>
 
