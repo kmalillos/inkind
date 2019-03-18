@@ -49,6 +49,8 @@ class AddVendor extends Component {
                     this.setRedirect();
                 })
                 .catch(err => console.log(err));
+        } else {
+            alert("Please enter Vendor Name.");
         }
     }
 

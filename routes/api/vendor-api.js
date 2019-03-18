@@ -1,9 +1,6 @@
 const vendorController = require("../../controllers/vendorController");
-// const checkAuth = require("../../config/checkAuth")
 
 module.exports = function(app) {
-
-  // app.get("/api/vendor", checkAuth, vendorController.findAllVendors);
 
   app.get("/api/vendor", vendorController.findAllVendors);
 

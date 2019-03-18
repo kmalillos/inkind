@@ -6,6 +6,7 @@ const secretOrPrivateKey = "secretpassword";
 module.exports = {
 
     createUser: function (req, res) {
+
         db.User
             .find({
                 where: {
@@ -54,13 +55,13 @@ module.exports = {
             .then(function (dbUser) {
                 if (dbUser < 1) {
                     return res.status(401).json({
-                        message: "Authentication failed!"
+                        message: "User don't exist.Authentication failed!"
                     })
                 }
                 bcrypt.compare(req.body.password, dbUser.password, function (err, result) {
                     if (err) {
                         return res.status(401).json({
-                            message: "Authentication failed!"
+                            message: "Wrong Password. Authentication failed!"
                         })
                     };
                     if (result) {
@@ -70,9 +71,9 @@ module.exports = {
                                 username: dbUser.username
                             },
                             secretOrPrivateKey,
-                            {
-                                expiresIn: "1h"
-                            },
+                            // {
+                            //     expiresIn: "1h"
+                            // },
                         )
                         return res.status(200).json({
                             message: "Authentication successful",
@@ -101,7 +102,10 @@ module.exports = {
                 console.log("Deleted: " + { dbUser });
                 res.json(dbUser);
             });
-    }
+    },
 
+    protected: function (req, res) {
+        res.send("Protected route!")
+    },
 
 };

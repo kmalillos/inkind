@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+import API from "../utils/API"
 
 class Login extends Component {
 
     state = {
         username: "",
-        password: ""
+        password: "",
+        token: ""
     };
 
     componentDidMount() {
@@ -20,7 +22,27 @@ class Login extends Component {
 
     handleFormSubmit = (event) => {
         event.preventDefault();
-        this.createVendor();
+        this.loginUser();
+    };
+
+    loginUser = () => {
+        if (this.state.username && this.state.password) {
+            API.loginUser({
+                username: this.state.username,
+                password: this.state.password,
+            })
+                .then(res => {
+                    console.log("Logged In: ", res.data);
+                    this.setState({ 
+                        username: res.data.username,
+                        password: res.data.password,
+                        token: res.data.token,
+                    });
+                })
+                .catch(err => console.log(err));
+        } else {
+            alert("Missing input from username or password.")
+        }
     };
 
     render() {
@@ -44,6 +66,7 @@ class Login extends Component {
                         value={this.state.password}
                         onChange={this.handleInputChange}
                         name="password"
+                        type="password"
                         placeholder="Password"
                     />
 
