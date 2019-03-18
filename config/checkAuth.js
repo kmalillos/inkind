@@ -7,6 +7,7 @@ module.exports = (req, res, next) => {
         console.log('Authorization successful!');
 
         const token = req.headers.authorization.split(" ")[1];
+        // const token = req.headers.authorization;
         console.log(token);
 
         const decoded = jwt.verify(token, secretOrPrivateKey);

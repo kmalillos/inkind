@@ -106,9 +106,9 @@ module.exports = {
             });
     },
 
-    // protected: function (req, res) {
-    //     res.send("Protected route!")
-    // },
+    protected: function (req, res) {
+        res.send("Protected route!")
+    },
 
     
     getUser: function (req, res) {

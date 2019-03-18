@@ -30,14 +30,14 @@ class Authenticated extends Component {
                 user: res.data
             })
         })
-        // .catch(err => {
-        //     localStorage.removeItem('jwt-auth');
-        //     this.props.history.push('/login');
-        // })
         .catch(err => {
-            console.log(err);
+            localStorage.removeItem('jwt-auth');
             this.props.history.push('/login');
-        });
+        })
+        // .catch(err => {
+        //     console.log(err);
+        //     this.props.history.push('/login');
+        // });
     }
 
     render() {

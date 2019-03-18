@@ -67,8 +67,8 @@ export default {
     return axios.delete("/api/user/" + userId);
   },
 
-  getUser: function() {
-    return axios.get("/api/user/getUser");
+  getUser: function(header) {
+    return axios.get("/api/user/getUser", header);
   }
 
 };
