@@ -1,44 +1,66 @@
-import React, { Component } from "react";
+import React from "react";
+import { Container, Row, Col, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./style.css";
 
-class Home extends Component {
+const Home = () => {
 
-    render() {
-        return (
-            <div>
-                <h1>In-Kind Collector</h1>
+    return (
+        <div>
+            <Container>
+                <Row>
+                    <Col> </Col>
+                    <Col><h1>In-Kind Collector</h1></Col>
+                    <Col> </Col>
+                </Row>
+            </Container>
 
-                <div className="card">
-                    {/* <img src="..." className="card-img-top" alt="..." /> */}
-                        <div className="card-body">
-                            <h5 className="card-title">All</h5>
-                            <p className="card-text">List all vendors and donations.</p>
-                            <Link to="/all" class="btn btn-primary">Go to All</Link>
-                        </div>
-                </div>
+            <Container>
+                <Row>
+                    <Col>
+                        <Card style={{ width: '18rem' }}>
+                            <Card.Img variant="top" src="holder.js/100px180" />
+                            <Card.Body>
+                                <Card.Title>All</Card.Title>
+                                <Card.Text>
+                                    List all vendors and donations.
+                                </Card.Text>
+                                <Link to="/all" className="btn btn-info">Go to All</Link>
+                            </Card.Body>
+                        </Card>
+                    </Col>
 
-                <div className="card">
-                    {/* <img src="..." className="card-img-top" alt="..." /> */}
-                        <div className="card-body">
-                            <h5 className="card-title">Search</h5>
-                            <p className="card-text">Search by vendor, location, or donation type.</p>
-                            <Link to="/all" class="btn btn-primary">Go to All</Link>
-                        </div>
-                </div>
 
-                <div className="card">
-                    {/* <img src="..." className="card-img-top" alt="..." /> */}
-                        <div className="card-body">
-                            <h5 className="card-title">Add</h5>
-                            <p className="card-text">Add a new vendor.</p>
-                            <Link to="/all" class="btn btn-primary">Go to All</Link>
-                        </div>
-                </div>
+                    <Col>
+                        <Card style={{ width: '18rem' }}>
+                            <Card.Img variant="top" src="holder.js/100px180" />
+                            <Card.Body>
+                                <Card.Title>Search</Card.Title>
+                                <Card.Text>
+                                    Search by vendors and donations.
+                                </Card.Text>
+                                <Link to="/search" className="btn btn-info">Go to Search</Link>
+                            </Card.Body>
+                        </Card>
+                    </Col>
 
-            </div>
-        )
-    }
+                    <Col>
+                        <Card style={{ width: '18rem' }}>
+                            <Card.Img variant="top" src="holder.js/100px180" />
+                            <Card.Body>
+                                <Card.Title>Add</Card.Title>
+                                <Card.Text>
+                                    Add a new vendor. 
+                                </Card.Text>
+                                <Link to="/add" className="btn btn-info">Go to Add</Link>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                </Row>
+            </Container>
+
+        </div>
+    )
 }
-        
+
 export default Home;
