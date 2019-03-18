@@ -86,19 +86,11 @@ class Search extends Component {
         return (
             <div>
 
-                <Container>
-                    <Row>
-                        <Col> </Col>
-                        <Col><h1>Search</h1></Col>
-                        <Col> </Col>
-                    </Row>
-                </Container>
+            <h1 className="text-center">Search</h1>
 
                 <Container>
                     <Row>
-                        <Col> </Col>
-                        <Col xs={6}>
-
+                        <Col>
                             <Form>
                                 <Form.Label>Search by Vendor Name</Form.Label>
                                 <Row>

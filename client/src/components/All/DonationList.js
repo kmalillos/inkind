@@ -28,7 +28,7 @@ class DonationList extends Component {
         return (
             <div>
 
-                <h1>All Donations</h1>
+                <h1 className="text-center">All Donations</h1>
 
                 <DonationTable>
                     {this.state.donations.map(donation => {

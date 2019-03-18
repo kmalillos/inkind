@@ -9,10 +9,8 @@ import All from "./pages/AllPage";
 import VendorList from "./components/All/VendorList";
 import DonationList from "./components/All/DonationList";
 import Search from "./pages/SearchPage";
-// import SearchResults from "./components/Search/SearchResults";
 import AddVendor from "./pages/AddVendorPage";
 import VendorPage from "./pages/VendorPage";
-// import AddDonation from "./components/VendorPage/AddDonation";
 import NoMatch from "./pages/NoMatchPage";
 
 
@@ -32,10 +30,8 @@ class App extends Component {
               <Route exact path="/all/vendors" component={VendorList} />
               <Route exact path="/all/donations" component={DonationList} />
               <Route path="/search" component={Search} />
-              {/* <Route path="/search/:search" component={SearchResults} /> */}
               <Route exact path="/add" component={AddVendor} />
               <Route path="/vendor/:id" component={VendorPage} />
-              {/* <Route exact path="/vendor/:id/add" component={AddDonation} /> */}
             {/* </Authenticated> */}
             <Route component={NoMatch} />
           </Switch>

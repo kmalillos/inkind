@@ -36,9 +36,6 @@ const All = (props) => {
 
             <Container>
                 <Row>
-                    <Col></Col>
-                    <Col></Col>
-                    <Col></Col>
                     <Col>
                         <Link to={`${props.match.url}`} role="button" className="btn">
                             Hide
@@ -47,22 +44,7 @@ const All = (props) => {
                 </Row>
             </Container>
 
-            {/* <Link to={`${props.match.url}/vendors`} role="button" className="btn">
-                List All Vendors
-                </Link>
-
-
-            <Link to={`${props.match.url}/donations`} role="button" className="btn">
-                List All Donations
-                </Link>
-
-
-            <Link to={`${props.match.url}`} role="button" className="btn">
-                Hide
-                </Link> */}
-
             <br></br>
-
 
             <Route exact path={`${props.match.url}/vendors`} component={VendorList} />
             <Route exact path={`${props.match.url}/donations`} component={DonationList} />

@@ -27,7 +27,7 @@ class VendorList extends Component {
         return (
             <div>
 
-                <h1>All Vendors</h1>
+                <h1 className="text-center">All Vendors</h1>
 
                 <VendorTable>
                     {this.state.vendors.map(vendor => {

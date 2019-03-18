@@ -7,13 +7,7 @@ const Home = () => {
 
     return (
         <div>
-            <Container>
-                <Row>
-                    <Col> </Col>
-                    <Col><h1>In-Kind Collector</h1></Col>
-                    <Col> </Col>
-                </Row>
-            </Container>
+            <h1 className="text-center">In-Kind Collector</h1>
 
             <Container>
                 <Row>

@@ -1,24 +1,31 @@
 import React from "react";
+import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export const DonationTable = ({ children }) => {
-    
+
     return (
         <div>
-            <table className="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Vendor Name</th>
-                        <th scope="col">Donation Type</th>
-                        <th scope="col">Note</th>
-                        {/* <th scope="col">Date</th>
-                        <th scope="col">Value</th> */}
-                    </tr>
-                </thead>
-                <tbody>
-                    {children}
-                </tbody>
-            </table>
+            <Container>
+                <Row>
+                    <Col>
+                        <table className="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Vendor Name</th>
+                                    <th scope="col">Donation Type</th>
+                                    <th scope="col">Note</th>
+                                    {/* <th scope="col">Date</th>
+                                    <th scope="col">Value</th> */}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {children}
+                            </tbody>
+                        </table>
+                    </Col>
+                </Row>
+            </Container>
         </div>
     );
 }

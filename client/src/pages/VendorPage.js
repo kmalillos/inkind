@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-// import { Route, Link } from "react-router-dom";
+import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import API from "../utils/API";
 import ContactInfo from "../components/VendorPage/ContactInfo";
 import { DonationTable, DonationTableItem } from "../components/VendorPage/Donations";
-// import AddDonation from "../components/VendorPage/AddDonation";
-
 
 
 class VendorPage extends Component {
@@ -55,7 +53,7 @@ class VendorPage extends Component {
         }
     };
 
-    handleInputChange = (event) => {
+    handleChange = (event) => {
         const { name, value } = event.target;
         this.setState({
             [name]: value
@@ -99,119 +97,115 @@ class VendorPage extends Component {
 
         return (
             <div>
-                <h1>{this.state.vendor.vendorName}</h1>
-
-                <br></br>
-
-                <h3>Contact Information</h3>
-
-                <ContactInfo
-                    key={this.state.vendor.id}
-                    address={this.state.vendor.address}
-                    city={this.state.vendor.city}
-                    state={this.state.vendor.state}
-                    zip={this.state.vendor.zip}
-                    phone={this.state.vendor.phone}
-                    email={this.state.vendor.email}
-                />
-
-                <br></br>
-
-                <h3>Donations</h3>
-
-                <DonationTable>
-                    {this.state.donations.map(donation => {
-                        return <DonationTableItem
-                            key={donation.id}
-                            donationType={donation.donationType}
-                            note={donation.note}
-                            date={donation.date}
-                            donationValue={donation.donationValue}
-                            id={donation.id}
-                            onClick={this.deleteDonation}
-                        />
-
-                    })}
-                </DonationTable>
-
-                <br></br>
-
-                <h3>Add Donation</h3>
+                <Container>
+                    <Row>
+                        <Col>
+                            <h1>{this.state.vendor.vendorName}</h1>
 
 
-                {/* <Link to={`${this.props.match.url}/add`} role="button" className="btn">
-                    Add Donation Form
-                </Link>
+                            <br></br>
 
-                <Route exact path={`${this.props.match.url}/add`} component={AddDonation} /> */}
+                            <h3>Contact Information</h3>
 
-                <form>
+                            <ContactInfo
+                                key={this.state.vendor.id}
+                                address={this.state.vendor.address}
+                                city={this.state.vendor.city}
+                                state={this.state.vendor.state}
+                                zip={this.state.vendor.zip}
+                                phone={this.state.vendor.phone}
+                                email={this.state.vendor.email}
+                            />
 
-                    <br></br>
+                            <br></br>
 
-                    <label>Donation Type (Required)</label>  <br></br>
-                    <select
-                        value={this.state.donationType}
-                        onChange={this.handleInputChange}
-                        name="donationType"
-                        placeholder="Donation Type"
-                    >
-                        <option value="" disabled>Select Donation Type</option>
-                        <option>Attraction</option>
-                        <option>Celebrity (non-sports)</option>
-                        <option>Hotel</option>
-                        <option>Meal</option>
-                        <option>Miscellaneous</option>
-                        <option>Performing Arts</option>
-                        <option>Photo/Video</option>
-                        <option>Professional Service</option>
-                        <option>Recreational Transportation</option>
-                        <option>Sports</option>
-                        <option>Travel/Transportation</option>
-                        <option>Wheelchair/Medical Equipment</option>
-                    </select>
+                            <h3>Donations</h3>
 
-                    <br></br>
+                            <DonationTable>
+                                {this.state.donations.map(donation => {
+                                    return <DonationTableItem
+                                        key={donation.id}
+                                        donationType={donation.donationType}
+                                        note={donation.note}
+                                        date={donation.date}
+                                        donationValue={donation.donationValue}
+                                        id={donation.id}
+                                        onClick={this.deleteDonation}
+                                    />
 
-                    <label>Note (Required)</label>  <br></br>
-                    <textarea
-                        value={this.state.note}
-                        onChange={this.handleInputChange}
-                        name="note"
-                        placeholder="Note"
-                    />
+                                })}
+                            </DonationTable>
+
+                            <br></br>
+                        </Col>
+                    </Row>
+                </Container>
 
 
-                    <br></br>
+                <Container>
+                    <Row>
+                        <Col>
+                            <h3>Add Donation</h3>
 
-                    <label>Date (Required)</label>  <br></br>
-                    <input
-                        value={this.state.date}
-                        onChange={this.handleInputChange}
-                        name="date"
-                        placeholder="YYYY-MM-DD"
-                    />
+                            <Form>
+                                <Form.Label>Donation Type (Required)</Form.Label>  <br></br>
+                                <Form.Control as="select"
+                                    value={this.state.donationType}
+                                    onChange={this.handleInputChange}
+                                    name="donationType"
+                                    placeholder="Donation Type"
+                                >
+                                    <option value="" disabled>Select Donation Type</option>
+                                    <option>Attraction</option>
+                                    <option>Celebrity (non-sports)</option>
+                                    <option>Hotel</option>
+                                    <option>Meal</option>
+                                    <option>Miscellaneous</option>
+                                    <option>Performing Arts</option>
+                                    <option>Photo/Video</option>
+                                    <option>Professional Service</option>
+                                    <option>Recreational Transportation</option>
+                                    <option>Sports</option>
+                                    <option>Travel/Transportation</option>
+                                    <option>Wheelchair/Medical Equipment</option>
+                                </Form.Control>
 
-                    <br></br>
+                                <Form.Label>Note (Required)</Form.Label>  <br></br>
+                                <Form.Control as="textarea"
+                                    value={this.state.note}
+                                    onChange={this.handleInputChange}
+                                    name="note"
+                                    placeholder="Note"
+                                />
 
-                    <label>Donation Value (Required)</label>  <br></br>
-                    <input
-                        value={this.state.donationValue}
-                        onChange={this.handleInputChange}
-                        name="donationValue"
-                        placeholder="Donation Value"
-                    />
+                                <Form.Label>Date (Required)</Form.Label>  <br></br>
+                                <Form.Control
+                                    value={this.state.date}
+                                    onChange={this.handleInputChange}
+                                    name="date"
+                                    placeholder="YYYY-MM-DD"
+                                />
 
-                    <p>
-                    <br></br>
-                    </p>
+                                <Form.Label>Donation Value (Required)</Form.Label>  <br></br>
+                                <Form.Control
+                                    value={this.state.donationValue}
+                                    onChange={this.handleInputChange}
+                                    name="donationValue"
+                                    placeholder="Donation Value"
+                                />
 
-                    <button
-                        onClick={this.handleFormSubmit}
-                    >
-                        Add Donation
-                    </button>
-                </form>
+                                <br></br>
+
+                                <Button className="btn-info"
+                                    onClick={this.handleFormSubmit}
+                                >
+                                    Add Donation
+                                </Button>
+                            </Form>
+                        </Col>
+                        <Col></Col>
+                    </Row>
+                </Container>
 
             </div>
         )
