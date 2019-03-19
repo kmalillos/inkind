@@ -23,7 +23,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/login" component={Login} />
-            <Authenticated>
+            {/* <Authenticated> */}
               <Route exact path="/" component={Home} />
               <Route path="/home" component={Home} />
               <Route path="/all" component={All} />
@@ -32,7 +32,7 @@ class App extends Component {
               <Route path="/search" component={Search} />
               <Route exact path="/add" component={AddVendor} />
               <Route path="/vendor/:id" component={VendorPage} />
-            </Authenticated>
+            {/* </Authenticated> */}
             <Route component={NoMatch} />
           </Switch>
         </>
