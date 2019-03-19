@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { Redirect } from 'react-router-dom';
 import API from "../utils/API"
-import { format } from "url";
 
 class Login extends Component {
 

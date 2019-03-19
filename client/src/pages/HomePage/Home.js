@@ -1,19 +1,23 @@
 import React from "react";
 import { Carousel, Container, Row, Col, CardDeck, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "./style.css";
+import carousel1 from "../../assets/imgs/carousel1.jpg";
+import carousel2 from "../../assets/imgs/carousel2.jpg";
+import carousel3 from "../../assets/imgs/carousel3.jpg";
+import carousel4 from "../../assets/imgs/carousel4.jpg";
+import carousel5 from "../../assets/imgs/carousel5.jpg";
+
 
 const Home = () => {
 
     return (
         <div>
             <h1 className="text-center">In-Kind Connections</h1>
-
-            {/* <Carousel>
+            <Carousel>
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src="holder.js/800x400?text=Second slide&bg=282c34"
+                        src={carousel1}
                         alt="First slide"
                     />
                     <Carousel.Caption>
@@ -24,61 +28,81 @@ const Home = () => {
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src="holder.js/800x400?text=Second slide&bg=282c34"
-                        alt="Third slide"
+                        src={carousel2}
+                        alt="First slide"
                     />
-
                     <Carousel.Caption>
-                        <h3>Second slide label</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h3>First slide label</h3>
+                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src="holder.js/800x400?text=Third slide&bg=20232a"
-                        alt="Third slide"
+                        src={carousel3}
+                        alt="First slide"
                     />
-
                     <Carousel.Caption>
-                        <h3>Third slide label</h3>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        <h3>First slide label</h3>
+                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
-            </Carousel>; */}
+                <Carousel.Item>
+                    <img
+                        className="d-block w-100"
+                        src={carousel4}
+                        alt="First slide"
+                    />
+                    <Carousel.Caption>
+                        <h3>First slide label</h3>
+                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                    </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item>
+                    <img
+                        className="d-block w-100"
+                        src={carousel5}
+                        alt="First slide"
+                    />
+                    <Carousel.Caption>
+                        <h3>First slide label</h3>
+                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                    </Carousel.Caption>
+                </Carousel.Item>
+            </Carousel>;
 
-            <Container>
+                <Container>
                 <Row>
                     <Col>
                         <CardDeck>
                             <Card>
-                                <Card.Img variant="top" src="holder.js/100px160" />
+                                <Card.Img variant="top" src="" />
                                 <Card.Body>
                                     <Card.Title>All</Card.Title>
-                                <Card.Text>
-                                    List all vendors and donations.
-                                </Card.Text>
-                                <Link to="/all" className="btn btn-info">Go to All</Link>
+                                    <Card.Text>
+                                        List all vendors and donations.
+                                    </Card.Text>
+                                    <Link to="/all" className="btn btn-info">Go to All</Link>
                                 </Card.Body>
                             </Card>
                             <Card>
-                                <Card.Img variant="top" src="holder.js/100px160" />
+                                <Card.Img variant="top" src="" />
                                 <Card.Body>
-                                <Card.Title>Search</Card.Title>
-                                <Card.Text>
-                                    Search by vendors and donations.
-                                </Card.Text>
-                                <Link to="/search" className="btn btn-info">Go to Search</Link>
+                                    <Card.Title>Search</Card.Title>
+                                    <Card.Text>
+                                        Search by vendors and donations.
+                                    </Card.Text>
+                                    <Link to="/search" className="btn btn-info">Go to Search</Link>
                                 </Card.Body>
                             </Card>
                             <Card>
-                                <Card.Img variant="top" src="holder.js/100px160" />
+                                <Card.Img variant="top" src="" />
                                 <Card.Body>
-                                <Card.Title>Add</Card.Title>
-                                <Card.Text>
-                                    Add a new vendor.
-                                </Card.Text>
-                                <Link to="/add" className="btn btn-info">Go to Add</Link>
+                                    <Card.Title>Add</Card.Title>
+                                    <Card.Text>
+                                        Add a new vendor.
+                                    </Card.Text>
+                                    <Link to="/add" className="btn btn-info">Go to Add</Link>
                                 </Card.Body>
                             </Card>
                         </CardDeck>
@@ -88,6 +112,7 @@ const Home = () => {
 
         </div>
     )
+
 }
 
 export default Home;
