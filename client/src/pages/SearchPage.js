@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import API from "../utils/API";
-import { Table, TableItem } from "../components/Search/SearchResults";
+import { ResultsWrapper, VendorResults, DonationResults } from "../components/Search/SearchResults";
 
 class Search extends Component {
     state = {
@@ -11,9 +11,10 @@ class Search extends Component {
         state: "",
         donationType: "",
         // api results
-        data: [],
-        vendors: [],
-        donations: [],
+        vendorResults: false,
+        donationResults: false,
+        vendorData: [],
+        donationData: [],
     };
 
     handleChange = (event) => {
@@ -25,57 +26,53 @@ class Search extends Component {
 
     searchByVendor = (event) => {
         event.preventDefault();
-        console.log(this.state.vendorName);
+        console.log("Search: ", this.state.vendorName);
         API.searchByVendor(this.state.vendorName)
             .then(res => {
                 // console.log(res.data);
                 this.setState({
-                    data: res.data
+                    vendorData: res.data
                 });
-                console.log(this.state.data);
             })
             .catch(err => console.log(err));
     };
 
     searchByCity = (event) => {
         event.preventDefault();
-        console.log(this.state.city);
+        console.log("Search: ", this.state.city);
         API.searchByCity(this.state.city)
             .then(res => {
                 // console.log(res.data);
                 this.setState({
-                    data: res.data
+                    vendorData: res.data
                 })
-                console.log(this.state.data);
             })
             .catch(err => console.log(err));
     };
 
     searchByState = (event) => {
         event.preventDefault();
-        // console.log(this.state.vendorName);
+        console.log("Search: ", this.state.state);
         API.searchByState(this.state.state)
             .then(res => {
                 // console.log(res.data);
                 this.setState({
-                    data: res.data
+                    vendorData: res.data
                 })
-                console.log(this.state.data);
             })
             .catch(err => console.log(err));
     };
 
-    // *** NEED TO FIT WITH VENDOR TABLE OR TERNARY OPERATORS?
     searchByType = (event) => {
         event.preventDefault();
-        // console.log(this.state.vendorName);
+        console.log("Search: ", this.state.donationType);
         API.searchByType(this.state.donationType)
             .then(res => {
-                // console.log(res.data);
+                console.log("Res: ", res.data);
                 this.setState({
-                    data: res.data
+                    donationData: res.data
                 })
-                console.log(this.state.data);
+                console.log("Returned Data: ", this.state.donationData);
             })
             .catch(err => console.log(err));
     };
@@ -86,7 +83,7 @@ class Search extends Component {
         return (
             <div>
 
-            <h1 className="text-center">Search</h1>
+                <h1 className="text-center">Search</h1>
 
                 <Container>
                     <Row>
@@ -243,32 +240,35 @@ class Search extends Component {
 
 
                         </Col>
-                        <Col> </Col>
+                        <Col>
+                            <ResultsWrapper>
+                                {this.state.vendorData.map(data => {
+                                    // console.log("Vendor Data: ", data)
+                                    return <VendorResults
+                                        key={data.id}
+                                        vendorID={data.id}
+                                        vendorName={data.vendorName}
+                                    />
+                                }
+                                )}
+
+                                {this.state.donationData.map(data => {
+                                    // console.log("Donation Data: ", data)
+                                    return <DonationResults
+                                        key={data.VendorId}
+                                        vendorID={data.VendorId}
+                                        vendorName={data.Vendor.vendorName}
+                                    />
+                                }
+                                )}
+                            </ResultsWrapper>
+                        </Col>
                     </Row>
                 </Container>
 
                 <p>
                     <br></br>
                 </p>
-
-                <h3>Search Results</h3>
-
-                <Table>
-                    {this.state.data.map(data => {
-                        console.log("Data Map: ", data);
-                        console.log("Vendor ID: ", data.id);
-                        console.log("Vendor Name: ", data.vendorName);
-                        // console.log("Type: ", data.Donations[0].donationType);
-                        // console.log("Type: ", data.Donations[0].note);
-                        return <TableItem
-                            key={data.id}
-                            vendorID={data.id}
-                            vendorName={data.vendorName}
-                        // donationType={data.Donations[0].donationType}
-                        // note={data.Donations[0].note}
-                        />
-                    })}
-                </Table>
 
             </div>
         )
