@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { Redirect } from 'react-router-dom';
 import API from "../utils/API"
+import { format } from "url";
 
 class Login extends Component {
 
@@ -11,7 +12,7 @@ class Login extends Component {
         redirect: false
     };
 
-    handleInputChange = (event) => {
+    handleChange = (event) => {
         const { name, value } = event.target;
         this.setState({
             [name]: value
@@ -29,7 +30,7 @@ class Login extends Component {
                 username: this.state.username,
                 password: this.state.password,
             })
-                .then( res => {
+                .then(res => {
                     // console.log("Logged In! ", res.data);
                     localStorage.setItem('jwt-auth', res.data.token);
                     this.setRedirect();
@@ -39,7 +40,7 @@ class Login extends Component {
                     alert("Login Failed.")
                 });
         } else {
-            alert("Missing input from username or password.")
+            alert("Missing Form.Control from username or password.")
         }
     };
 
@@ -47,7 +48,7 @@ class Login extends Component {
         this.setState({
             redirect: true
         })
-        
+
     }
 
     redirectPage = () => {
@@ -59,40 +60,47 @@ class Login extends Component {
     render() {
         return (
             <div>
-                <h1>Login</h1>
+                <Container>
+                    <Row>
+                        <Col></Col>
+                        <Col>
+                            <h1 className="text-center">Login</h1>
 
-                <form>
-                    <label>Username</label> <br></br>
-                    <input
-                        value={this.state.username}
-                        onChange={this.handleInputChange}
-                        name="username"
-                        placeholder="Username"
-                    />
+                            <Form>
+                                <Form.Label>Username</Form.Label> <br></br>
+                                <Form.Control
+                                    value={this.state.username}
+                                    onChange={this.handleChange}
+                                    name="username"
+                                    placeholder="Username"
+                                />
 
-                    <br></br>
+                                <br></br>
 
-                    <label>Password</label> <br></br>
-                    <input
-                        value={this.state.password}
-                        onChange={this.handleInputChange}
-                        name="password"
-                        type="password"
-                        placeholder="Password"
-                    />
+                                <Form.Label>Password</Form.Label> <br></br>
+                                <Form.Control
+                                    value={this.state.password}
+                                    onChange={this.handleChange}
+                                    name="password"
+                                    type="password"
+                                    placeholder="Password"
+                                />
 
-                    <p>
-                        <br></br>
-                    </p>
+                                <p>
+                                    <br></br>
+                                </p>
 
-                    {this.redirectPage()}
-                    <button
-                        onClick={this.handleFormSubmit}
-                    >
-                        Login
-                    </button>
-
-                </form>
+                                {this.redirectPage()}
+                                <Button className="btn btn-info"
+                                    onClick={this.handleFormSubmit}
+                                >
+                                    Login
+                                 </Button>
+                            </Form>
+                        </Col>
+                        <Col></Col>
+                    </Row>
+                </Container>
             </div>
         )
     }

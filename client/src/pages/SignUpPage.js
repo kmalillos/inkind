@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import API from "../utils/API"
 
 class SignUp extends Component {
@@ -13,7 +14,7 @@ class SignUp extends Component {
         // CODE HERE
     };
 
-    handleInputChange = (event) => {
+    handleChange = (event) => {
         const { name, value } = event.target;
         this.setState({
             [name]: value
@@ -33,7 +34,7 @@ class SignUp extends Component {
             })
                 .then(res => {
                     console.log("Created User: ", res.data);
-                    this.setState({ 
+                    this.setState({
                         username: res.data.username,
                         password: res.data.password
                     });
@@ -47,39 +48,48 @@ class SignUp extends Component {
     render() {
         return (
             <div>
-                <h1>Sign Up</h1>
+                <Container>
+                    <Row>
+                        <Col></Col>
+                        <Col>
+                            <h1 className="text-center">Sign Up</h1>
 
-                <form>
-                    <label>Username</label> <br></br>
-                    <input
-                        value={this.state.username}
-                        onChange={this.handleInputChange}
-                        name="username"
-                        placeholder="Username"
-                    />
+                            <Form>
+                                <Form.Label>Username</Form.Label> <br></br>
+                                <Form.Control
+                                    value={this.state.username}
+                                    onChange={this.handleChange}
+                                    name="username"
+                                    placeholder="Username"
+                                />
 
-                    <br></br>
+                                <br></br>
 
-                    <label>Password</label> <br></br>
-                    <input
-                        value={this.state.password}
-                        onChange={this.handleInputChange}
-                        name="password"
-                        type="password"
-                        placeholder="Password"
-                    />
+                                <Form.Label>Password</Form.Label> <br></br>
+                                <Form.Control
+                                    value={this.state.password}
+                                    onChange={this.handleChange}
+                                    name="password"
+                                    type="password"
+                                    placeholder="Password"
+                                />
 
-                    <p>
-                        <br></br>
-                    </p>
+                                <p>
+                                    <br></br>
+                                </p>
 
-                    <button
-                        onClick={this.handleFormSubmit}
-                    >
-                        Sign Up
-                    </button>
+                                <Button className="btn btn-info"
+                                    onClick={this.handleFormSubmit}
+                                >
+                                    Sign Up
+                                </Button>
 
-                </form>
+                            </Form>
+                        </Col>
+                        <Col></Col>
+                    </Row>
+                </Container>
+
             </div>
         )
     }
