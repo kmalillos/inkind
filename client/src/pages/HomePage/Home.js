@@ -1,72 +1,84 @@
 import React from "react";
 import { Carousel, Container, Row, Col, CardDeck, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import carousel1 from "../../assets/imgs/carousel1.jpg";
-import carousel2 from "../../assets/imgs/carousel2.jpg";
-import carousel3 from "../../assets/imgs/carousel3.jpg";
-import carousel4 from "../../assets/imgs/carousel4.jpg";
-import carousel5 from "../../assets/imgs/carousel5.jpg";
+import home1 from "../../assets/imgs/home1.jpg";
+import home2 from "../../assets/imgs/home2.jpg";
+import home3 from "../../assets/imgs/home3.jpg";
+import home4 from "../../assets/imgs/home4.jpg";
+import home5 from "../../assets/imgs/home5.jpg";
+import home6 from "../../assets/imgs/home6.jpg";
 
 
 const Home = () => {
 
     return (
         <div>
-            <h1 className="text-center">In-Kind Connections</h1>
+            {/* <h1 className="text-center">In-Kind Connections</h1> */}
             <Carousel>
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src={carousel1}
+                        src={home1}
                         alt="First slide"
                     />
                     <Carousel.Caption>
-                        <h3>First slide label</h3>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        <h3>Chuck Participates in the Soap Box Derby Championships</h3>
+                        {/* <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src={carousel2}
+                        src={home2}
                         alt="First slide"
                     />
                     <Carousel.Caption>
-                        <h3>First slide label</h3>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        <h3>Best Friends Carolyn and Yvonne Reunite</h3>
+                        {/* <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src={carousel3}
+                        src={home3}
                         alt="First slide"
                     />
                     <Carousel.Caption>
-                        <h3>First slide label</h3>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        <h3>Jack Flies in a Fighter Jet</h3>
+                        {/* <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src={carousel4}
+                        src={home4}
                         alt="First slide"
                     />
                     <Carousel.Caption>
-                        <h3>First slide label</h3>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        <h3>Joan Vists Facebook's Living Roof</h3>
+                        {/* <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src={carousel5}
+                        src={home5}
                         alt="First slide"
                     />
                     <Carousel.Caption>
-                        <h3>First slide label</h3>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        <h3>Mike Celebrates His 95th Birthday with Family</h3>
+                        {/* <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
+                    </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item>
+                    <img
+                        className="d-block w-100"
+                        src={home6}
+                        alt="First slide"
+                    />
+                    <Carousel.Caption>
+                        <h3>Patty Goes to a Baseball Game</h3>
+                        {/* <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>;

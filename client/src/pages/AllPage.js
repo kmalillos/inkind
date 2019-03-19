@@ -1,6 +1,8 @@
 import React from "react";
-import { Container, Row, Col, Card } from "react-bootstrap";
+import { Container, Row, Col, CardGroup, Card } from "react-bootstrap";
 import { Route, Link } from "react-router-dom";
+import allvendors from "../assets/imgs/allvendors.jpg";
+import alldonations from "../assets/imgs/alldonations.jpg";
 import VendorList from "../components/All/VendorList";
 import DonationList from "../components/All/DonationList";
 
@@ -11,26 +13,24 @@ const All = (props) => {
 
             <Container>
                 <Row>
-                    <Col></Col>
                     <Col>
-                        <Card style={{ width: '18rem' }}>
-                            <Card.Img variant="top" src="holder.js/100px180" />
-                            <Card.Body>
-                                <Card.Title>Vendors</Card.Title>
-                                <Link to={`${props.match.url}/vendors`} className="btn btn-info">List All by Vendor</Link>
-                            </Card.Body>
-                        </Card>
+                        <CardGroup>
+                            <Card style={{ width: '18rem' }}>
+                                <Card.Img variant="top" src={allvendors} />
+                                <Card.Body>
+                                    <Card.Title>Vendors</Card.Title>
+                                    <Link to={`${props.match.url}/vendors`} className="btn btn-info">List All by Vendor</Link>
+                                </Card.Body>
+                            </Card>
+                            <Card style={{ width: '18rem' }}>
+                                <Card.Img variant="top" src={alldonations} />
+                                <Card.Body>
+                                    <Card.Title>Donations</Card.Title>
+                                    <Link to={`${props.match.url}/donations`} className="btn btn-info">List All by Donations</Link>
+                                </Card.Body>
+                            </Card>
+                        </CardGroup>
                     </Col>
-                    <Col>
-                        <Card style={{ width: '18rem' }}>
-                            <Card.Img variant="top" src="holder.js/100px180" />
-                            <Card.Body>
-                                <Card.Title>Donations</Card.Title>
-                                <Link to={`${props.match.url}/donations`} className="btn btn-info">List All by Donations</Link>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                    <Col></Col>
                 </Row>
             </Container>
 

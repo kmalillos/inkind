@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
 import API from "../utils/API";
 import { ResultsWrapper, VendorResults, DonationResults } from "../components/Search/SearchResults";
+import search from "../assets/imgs/search.jpg";
 
 class Search extends Component {
     state = {
@@ -241,6 +242,7 @@ class Search extends Component {
 
                         </Col>
                         <Col>
+
                             <ResultsWrapper>
                                 {this.state.vendorData.map(data => {
                                     // console.log("Vendor Data: ", data)
@@ -262,6 +264,11 @@ class Search extends Component {
                                 }
                                 )}
                             </ResultsWrapper>
+
+                            <Card>
+                                <Card.Img variant="top" src={search} />
+                            </Card>
+
                         </Col>
                     </Row>
                 </Container>

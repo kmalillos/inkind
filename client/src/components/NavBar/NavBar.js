@@ -1,43 +1,22 @@
 import React from "react";
-// import { Navbar, Nav, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Container, Navbar, Nav} from "react-bootstrap";
+// import { Link } from "react-router-dom";
 import "./style.css";
 
 const NavBar = () => {
     return (
         <>
-
-            {/* <Navbar sticky="top" bg="info" expand="lg" variant="dark">
-                <Navbar.Brand to="/">Home</Navbar.Brand>
-                <Nav className="mr-auto">
-                    <Nav.Link to="/all">All</Nav.Link>
-                    <Nav.Link to="/search">Search</Nav.Link>
-                    <Nav.Link to="/add">Add</Nav.Link>
-                </Nav>
-            </Navbar> */}
-
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark navbar-default navbar-fixed-top">
-                <div className="container">
-                    <Link className="navbar-brand" to="/">Home</Link>
-                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse" id="navbarNav">
-                        <ul className="navbar-nav">
-                            <li className="nav-link">
-                                <Link className="nav-link" to="/all">All</Link>
-                            </li>
-                            <li className="nav-link">
-                                <Link className="nav-link" to="/search">Search</Link>
-                            </li>
-                            <li className="nav-link">
-                                <Link className="nav-link" to="/add">Add</Link>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-
+            <Navbar bg="dark" variant="dark">
+                <Container>
+                    <Navbar.Brand href="/">Home</Navbar.Brand>
+                    <Nav className="mr-auto">
+                        <Nav.Link href="/all">All</Nav.Link>
+                        <Nav.Link href="/search">Search</Nav.Link>
+                        <Nav.Link href="/add">Add</Nav.Link>
+                    </Nav>
+                    <Navbar.Brand inline href="/">In-Kind Connections</Navbar.Brand>
+                </Container>
+            </Navbar>
         </>
     )
 }

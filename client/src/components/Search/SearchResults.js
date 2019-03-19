@@ -14,6 +14,8 @@ export const ResultsWrapper = ({ children }) => {
                     </ListGroup>
                 </Card.Body>
             </Card>
+
+            <br></br>
         </div>
 
     )

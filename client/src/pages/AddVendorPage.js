@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
 import API from "../utils/API";
+import addvendor from "../assets/imgs/addvendor.jpg";
 import { Redirect } from 'react-router-dom';
 
 class AddVendor extends Component {
@@ -75,7 +76,11 @@ class AddVendor extends Component {
                 <p className="text-center">Donations can be added on Vendor Pages.</p>
                 <Container>
                     <Row>
-                        <Col></Col>
+                        <Col>
+                            <Card>
+                                <Card.Img variant="top" src={addvendor} />
+                            </Card>
+                        </Col>
                         <Col>
                             <Form>
 
