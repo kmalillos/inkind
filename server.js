@@ -13,6 +13,10 @@ app.use(express.json());
 // Static directory
 app.use(express.static("public"));
 
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 
 // ROUTES
 // =============================================================
