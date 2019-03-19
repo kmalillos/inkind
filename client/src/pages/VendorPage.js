@@ -18,7 +18,14 @@ class VendorPage extends Component {
     };
 
     componentDidMount() {
+        this.setVendorId();
         this.findOneVendor();
+    }
+
+    setVendorId = () => {
+        this.setState({
+            VendorId: this.props.match.params.id
+        })
     }
 
     findOneVendor = () => {
@@ -36,13 +43,17 @@ class VendorPage extends Component {
             .catch(err => console.log(err));
     };
 
-
-    deleteDonation = (event) => {
+    editVendor = (event, id) => {
         event.preventDefault();
-        // console.log(event);
-        // console.log("deleted: ", event.target.id);
+        console.log("edit", id);
+        // CODE HERE
+    }
+
+    deleteVendor = (event, id) => {
+        event.preventDefault();
+        console.log("delete", id);
         if (window.confirm("Are you sure you want to delete?")) {
-            API.deleteDonation(event.target.id)
+            API.deleteVendor(event.target.id)
                 .then(res => {
                     console.log("Deleted Donation");
                     this.findOneVendor();
@@ -51,7 +62,7 @@ class VendorPage extends Component {
         } else {
             this.findOneVendor();
         }
-    };
+    }
 
     handleChange = (event) => {
         const { name, value } = event.target;
@@ -86,6 +97,22 @@ class VendorPage extends Component {
         }
     }
 
+    deleteDonation = (event) => {
+        event.preventDefault();
+        // console.log(event);
+        // console.log("deleted: ", event.target.id);
+        if (window.confirm("Are you sure you want to delete?")) {
+            API.deleteDonation(event.target.id)
+                .then(res => {
+                    console.log("Deleted Donation");
+                    this.findOneVendor();
+                })
+                .catch(err => console.log(err));
+        } else {
+            this.findOneVendor();
+        }
+    };
+
     reloadPage = () => {
         console.log("Page Reloaded");
         this.findOneVendor();
@@ -102,6 +129,19 @@ class VendorPage extends Component {
                         <Col>
                             <h1>{this.state.vendor.vendorName}</h1>
 
+                            <Button className="btn-info float-right"
+                                id={this.state.VendorId}
+                                onClick={this.deleteVendor}
+                            >
+                                Delete Vendor
+                            </Button>
+
+                            <Button className="btn-info float-right"
+                                id={this.state.VendorId}
+                                onClick={this.editVendor}
+                            >
+                                Edit Vendor
+                            </Button>
 
                             <br></br>
 
@@ -151,7 +191,7 @@ class VendorPage extends Component {
                                 <Form.Label>Donation Type (Required)</Form.Label>  <br></br>
                                 <Form.Control as="select"
                                     value={this.state.donationType}
-                                    onChange={this.handleInputChange}
+                                    onChange={this.handleChange}
                                     name="donationType"
                                     placeholder="Donation Type"
                                 >
@@ -173,7 +213,7 @@ class VendorPage extends Component {
                                 <Form.Label>Note (Required)</Form.Label>  <br></br>
                                 <Form.Control as="textarea"
                                     value={this.state.note}
-                                    onChange={this.handleInputChange}
+                                    onChange={this.handleChange}
                                     name="note"
                                     placeholder="Note"
                                 />
@@ -181,7 +221,7 @@ class VendorPage extends Component {
                                 <Form.Label>Date (Required)</Form.Label>  <br></br>
                                 <Form.Control
                                     value={this.state.date}
-                                    onChange={this.handleInputChange}
+                                    onChange={this.handleChange}
                                     name="date"
                                     placeholder="YYYY-MM-DD"
                                 />
@@ -189,7 +229,7 @@ class VendorPage extends Component {
                                 <Form.Label>Donation Value (Required)</Form.Label>  <br></br>
                                 <Form.Control
                                     value={this.state.donationValue}
-                                    onChange={this.handleInputChange}
+                                    onChange={this.handleChange}
                                     name="donationValue"
                                     placeholder="Donation Value"
                                 />

@@ -6,7 +6,7 @@ import { Redirect } from 'react-router-dom';
 class AddVendor extends Component {
     state = {
         vendorID: "",
-        vendorName: "",
+        vendorName: undefined,
         address: "",
         city: "",
         state: "",
@@ -50,7 +50,7 @@ class AddVendor extends Component {
                 })
                 .catch(err => console.log(err));
         } else {
-            alert("Please enter Vendor Name.");
+            alert("Please enter required field: Vendor Name.");
         }
     }
 
@@ -75,8 +75,17 @@ class AddVendor extends Component {
                 <p className="text-center">Donations can be added on Vendor Pages.</p>
                 <Container>
                     <Row>
+                        <Col></Col>
                         <Col>
                             <Form>
+
+                                <Form.Label>Vendor Name (Required)</Form.Label> <br></br>
+                                <Form.Control
+                                    value={this.state.vendorName}
+                                    onChange={this.handleChange}
+                                    name="vendorName"
+                                    placeholder="Vendor Name"
+                                />
 
                                 <Form.Label>Address</Form.Label> <br></br>
                                 <Form.Control
@@ -172,7 +181,16 @@ class AddVendor extends Component {
                                     placeholder="Phone Number"
                                 />
 
-                            <br></br>
+                                <Form.Label>Email</Form.Label> <br></br>
+                                <Form.Control
+                                    value={this.state.email}
+                                    onChange={this.handleChange}
+                                    name="email"
+                                    placeholder="Email"
+                                />
+
+
+                                <br></br>
 
                                 {this.redirectPage()}
                                 <Button className="btn-info"
@@ -182,8 +200,6 @@ class AddVendor extends Component {
                                 </Button>
                             </Form>
                         </Col>
-
-                        <Col></Col>
                     </Row>
                 </Container>
 
