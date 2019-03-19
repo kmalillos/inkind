@@ -1,0 +1,8 @@
+.sticky-footer {
+    /* display: block; */
+    position: fixed;
+    left: 0;
+    bottom: -15px;
+    height: auto;
+    width: 100%;
+}

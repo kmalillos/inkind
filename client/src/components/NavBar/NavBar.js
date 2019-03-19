@@ -1,10 +1,11 @@
 import React from "react";
 import { Navbar, Nav, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import "./style.css";
 
 const NavBar = () => {
     return (
-        <div>
+        <>
 
             {/* <Navbar sticky="top" bg="info" expand="lg" variant="dark">
                 <Navbar.Brand to="/">Home</Navbar.Brand>
@@ -15,8 +16,8 @@ const NavBar = () => {
                 </Nav>
             </Navbar> */}
 
-            <div>
-                <nav className="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark navbar-default navbar-fixed-top">
+                <div className="container">
                     <Link className="navbar-brand" to="/">Home</Link>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
@@ -34,9 +35,10 @@ const NavBar = () => {
                             </li>
                         </ul>
                     </div>
-                </nav>
-            </div>
-        </div>
+                </div>
+            </nav>
+
+        </>
     )
 }
 

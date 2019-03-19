@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/NavBar/NavBar";
 import SignUp from "./pages/SignUpPage";
 import Login from "./pages/LoginPage";
 import Authenticated from "./components/Authentication/Authenticated";
@@ -12,6 +12,7 @@ import Search from "./pages/SearchPage";
 import AddVendor from "./pages/AddVendorPage";
 import VendorPage from "./pages/VendorPage";
 import NoMatch from "./pages/NoMatchPage";
+import Footer from "./components/Footer/Footer";
 
 
 class App extends Component {
@@ -35,6 +36,7 @@ class App extends Component {
             {/* </Authenticated> */}
             <Route component={NoMatch} />
           </Switch>
+          <Footer />
         </>
       </Router>
     );
