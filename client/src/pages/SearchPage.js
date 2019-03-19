@@ -222,12 +222,12 @@ class Search extends Component {
                                             <option>Meal</option>
                                             <option>Miscellaneous</option>
                                             <option>Performing Arts</option>
-                                            <option>Photo/Video</option>
+                                            <option>Photo and Video</option>
                                             <option>Professional Service</option>
                                             <option>Recreational Transportation</option>
                                             <option>Sports</option>
-                                            <option>Travel/Transportation</option>
-                                            <option>Wheelchair/Medical Equipment</option>
+                                            <option>Travel and Transportation</option>
+                                            <option>Wheelchair and Medical Equipment</option>
                                         </Form.Control>
                                     </Col>
                                     <Col>
