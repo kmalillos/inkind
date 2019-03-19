@@ -7,7 +7,7 @@ const Home = () => {
 
     return (
         <div>
-            <h1 className="text-center">In-Kind Collector</h1>
+            <h1 className="text-center">In-Kind Connections</h1>
 
             <Container>
                 <Row>
