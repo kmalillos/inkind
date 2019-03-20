@@ -1,13 +1,37 @@
+const router = require("express").Router();
 const vendorController = require("../../controllers/vendorController");
 
-module.exports = function(app) {
+router.route("/")
+.get(vendorController.findAllVendors)
+.post(vendorController.createVendor);
 
-  app.get("/api/vendor", vendorController.findAllVendors);
+router.route("/:id")
+.get(vendorController.findOneVendor)
+.delete(vendorController.deleteVendor);
 
-  app.get("/api/vendor/:id", vendorController.findOneVendor);
+module.exports = router;
 
-  app.post("/api/vendor", vendorController.createVendor);
+// module.exports = function(app) {
 
-  app.delete("/api/vendor/:id", vendorController.deleteVendor);
+//   app.get("/vendor", vendorController.findAllVendors);
 
-};
+//   app.get("/vendor/:id", vendorController.findOneVendor);
+
+//   app.post("/vendor", vendorController.createVendor);
+
+//   app.delete("/vendor/:id", vendorController.deleteVendor);
+
+// };
+
+
+// module.exports = function(app) {
+
+//   app.get("/api/vendor", vendorController.findAllVendors);
+
+//   app.get("/api/vendor/:id", vendorController.findOneVendor);
+
+//   app.post("/api/vendor", vendorController.createVendor);
+
+//   app.delete("/api/vendor/:id", vendorController.deleteVendor);
+
+// };

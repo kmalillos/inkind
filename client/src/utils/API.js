@@ -38,19 +38,19 @@ export default {
 
   // Search Routes
   searchByVendor: function(vendorName) {
-    return axios.get("/api/searchVendor/" + vendorName);
+    return axios.get("/api/search/vendor/" + vendorName);
   },
 
   searchByCity: function(city) {
-    return axios.get("/api/searchCity/" + city);
+    return axios.get("/api/search/city/" + city);
   },
 
   searchByState: function(state) {
-    return axios.get("/api/searchState/" + state);
+    return axios.get("/api/search/state/" + state);
   },
 
   searchByType: function(donationType) {
-    return axios.get("/api/searchType/" + donationType);
+    return axios.get("/api/search/type/" + donationType);
   },
 
   //User Routes

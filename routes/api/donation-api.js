@@ -1,13 +1,37 @@
-const donationController = require("../../controllers/donationController")
+const router = require("express").Router();
+const donationController = require("../../controllers/donationController");
 
-module.exports = function(app) {
+router.route("/")
+.get(donationController.findAllDonations)
+.post(donationController.createDonation);
 
-  app.get("/api/donation", donationController.findAllDonations);
+router.route("/:id")
+.get(donationController.createDonation)
+.delete(donationController.deleteDonation);
 
-  app.get("/api/donation/:id", donationController.findOneDonation);
+module.exports = router;
 
-  app.post("/api/donation", donationController.createDonation);
+// module.exports = function(app) {
+
+//   app.get("/donation", donationController.findAllDonations); 
+
+//   app.get("/donation/:id", donationController.findOneDonation);
+
+//   app.post("/donation", donationController.createDonation); 
   
-  app.delete("/api/donation/:id", donationController.deleteDonation);
+//   app.delete("/donation/:id", donationController.deleteDonation);
 
-};
+// };
+
+
+// module.exports = function(app) {
+
+//   app.get("/api/donation", donationController.findAllDonations); 
+
+//   app.get("/api/donation/:id", donationController.findOneDonation);
+
+//   app.post("/api/donation", donationController.createDonation); 
+  
+//   app.delete("/api/donation/:id", donationController.deleteDonation);
+
+// };
