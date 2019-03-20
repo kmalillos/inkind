@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
 import { Redirect } from 'react-router-dom';
-import API from "../utils/API"
+import API from "../utils/API";
+import login from "../assets/imgs/login.jpg";
 
 class Login extends Component {
 
@@ -30,7 +31,7 @@ class Login extends Component {
                 password: this.state.password,
             })
                 .then(res => {
-                    // console.log("Logged In! ", res.data);
+                    console.log("Login Successul", res.data);
                     localStorage.setItem('jwt-auth', res.data.token);
                     this.setRedirect();
                 })
@@ -59,11 +60,17 @@ class Login extends Component {
     render() {
         return (
             <div>
+
+                <h1 className="text-center">Login</h1>
+
+                {/* <p className="text-center"> </p> */}
                 <Container>
                     <Row>
                         <Col></Col>
                         <Col>
-                            <h1 className="text-center">Login</h1>
+                            <Card>
+                                <Card.Img variant="top" src={login} />
+                            </Card>
 
                             <Form>
                                 <Form.Label>Username</Form.Label> <br></br>
@@ -85,9 +92,7 @@ class Login extends Component {
                                     placeholder="Password"
                                 />
 
-                                <p>
                                     <br></br>
-                                </p>
 
                                 {this.redirectPage()}
                                 <Button className="btn btn-info"
@@ -96,8 +101,10 @@ class Login extends Component {
                                     Login
                                  </Button>
                             </Form>
+
                         </Col>
                         <Col></Col>
+
                     </Row>
                 </Container>
             </div>

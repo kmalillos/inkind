@@ -17,24 +17,12 @@ module.exports = router;
 
 // module.exports = function(app) {
 
-//   app.get("/searchVendor/:vendorName", searchController.searchByVendor);
+//   app.get("/vendor/:vendorName", searchController.searchByVendor);
 
-//   app.get("/searchCity/:city", searchController.searchByCity);
+//   app.get("/city/:city", searchController.searchByCity);
 
-//   app.get("searchState/:state", searchController.searchByState);
+//   app.get("state/:state", searchController.searchByState);
   
-//   app.get("/searchType/:donationType", searchController.searchByType);
-
-// };
-
-// module.exports = function(app) {
-
-//   app.get("/api/searchVendor/:vendorName", searchController.searchByVendor);
-
-//   app.get("/api/searchCity/:city", searchController.searchByCity);
-
-//   app.get("/api/searchState/:state", searchController.searchByState);
-  
-//   app.get("/api/searchType/:donationType", searchController.searchByType);
+//   app.get("/type/:donationType", searchController.searchByType);
 
 // };

@@ -38,8 +38,12 @@ class SignUp extends Component {
                         username: res.data.username,
                         password: res.data.password
                     });
+                    alert("New user created.")
                 })
-                .catch(err => console.log(err));
+                .catch(err => {
+                    console.log(err);
+                    alert("Sign Up Failed.")
+                });
         } else {
             alert("Missing username or password.")
         }
