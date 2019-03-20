@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
-import API from "../utils/API"
+import API from "../utils/API";
+import { Redirect } from 'react-router-dom';
 
 class SignUp extends Component {
 
     state = {
         username: "",
         password: "",
-        user: []
+        user: [],
+        redirect: false
     };
 
     componentDidMount() {
@@ -39,6 +41,7 @@ class SignUp extends Component {
                         password: res.data.password
                     });
                     alert("New user created.")
+                    this.setRedirect();
                 })
                 .catch(err => {
                     console.log(err);
@@ -48,6 +51,19 @@ class SignUp extends Component {
             alert("Missing username or password.")
         }
     };
+
+    setRedirect = () => {
+        this.setState({
+            redirect: true
+        })
+
+    }
+
+    redirectPage = () => {
+        if (this.state.redirect) {
+            return <Redirect to={`/home`} />
+        }
+    }
 
     render() {
         return (
@@ -82,6 +98,7 @@ class SignUp extends Component {
                                     <br></br>
                                 </p>
 
+                                {this.redirectPage()}
                                 <Button className="btn btn-info"
                                     onClick={this.handleFormSubmit}
                                 >
