@@ -18,15 +18,15 @@ const All = (props) => {
                             <Card style={{ width: '18rem' }}>
                                 <Card.Img variant="top" src={allvendors} />
                                 <Card.Body>
-                                    <Card.Title>Vendors</Card.Title>
-                                    <Link to={`${props.match.url}/vendors`} className="btn btn-info">List All by Vendor</Link>
+                                    {/* <Card.Title>Vendors</Card.Title> */}
+                                    <Link to={`${props.match.url}/vendors`} className="btn btn-info btn-block">List All by Contact Info</Link>
                                 </Card.Body>
                             </Card>
                             <Card style={{ width: '18rem' }}>
                                 <Card.Img variant="top" src={alldonations} />
                                 <Card.Body>
-                                    <Card.Title>Donations</Card.Title>
-                                    <Link to={`${props.match.url}/donations`} className="btn btn-info">List All by Donations</Link>
+                                    {/* <Card.Title>Donations</Card.Title> */}
+                                    <Link to={`${props.match.url}/donations`} className="btn btn-info btn-block">List All by Donation Type</Link>
                                 </Card.Body>
                             </Card>
                         </CardGroup>
@@ -37,7 +37,7 @@ const All = (props) => {
             <Container>
                 <Row>
                     <Col>
-                        <Link to={`${props.match.url}`} role="button" className="btn">
+                        <Link to={`${props.match.url}`} role="button" className="btn-link float-right">
                             Hide
                         </Link>
                     </Col>
@@ -45,9 +45,6 @@ const All = (props) => {
             </Container>
 
             <br></br>
-
-            <Route exact path={`${props.match.url}/vendors`} component={VendorList} />
-            <Route exact path={`${props.match.url}/donations`} component={DonationList} />
 
 
         </div>

@@ -8,8 +8,15 @@ class VendorList extends Component {
     };
 
     componentDidMount() {
+        // this.resetPage();
         this.findAllVendors();
     };
+
+    // resetPage = () => {
+    //     this.setState({
+    //         vendors: []
+    //     })
+    // }
 
     findAllVendors = () => {
         API.findAllVendors()

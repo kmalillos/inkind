@@ -12,8 +12,6 @@ class Search extends Component {
         state: "",
         donationType: "",
         // api results
-        vendorResults: false,
-        donationResults: false,
         vendorData: [],
         donationData: [],
     };
@@ -25,11 +23,25 @@ class Search extends Component {
         });
     };
 
+    resetForm = () => {
+        this.setState({
+            vendorName: "",
+            city: "",
+            state: "",
+            donationType: "",
+        })
+    }
+
+    reloadPage = () => {
+        // reload page code
+    }
+
     searchByVendor = (event) => {
         event.preventDefault();
         console.log("Search: ", this.state.vendorName);
         API.searchByVendor(this.state.vendorName)
             .then(res => {
+                this.resetForm();
                 // console.log(res.data);
                 this.setState({
                     vendorData: res.data
@@ -43,6 +55,7 @@ class Search extends Component {
         console.log("Search: ", this.state.city);
         API.searchByCity(this.state.city)
             .then(res => {
+                this.resetForm();
                 // console.log(res.data);
                 this.setState({
                     vendorData: res.data
@@ -56,6 +69,7 @@ class Search extends Component {
         console.log("Search: ", this.state.state);
         API.searchByState(this.state.state)
             .then(res => {
+                this.resetForm();
                 // console.log(res.data);
                 this.setState({
                     vendorData: res.data
@@ -69,11 +83,12 @@ class Search extends Component {
         console.log("Search: ", this.state.donationType);
         API.searchByType(this.state.donationType)
             .then(res => {
-                console.log("Res: ", res.data);
+                this.resetForm();
+                // console.log("Res: ", res.data);
                 this.setState({
                     donationData: res.data
                 })
-                console.log("Returned Data: ", this.state.donationData);
+                // console.log("Returned Data: ", this.state.donationData);
             })
             .catch(err => console.log(err));
     };

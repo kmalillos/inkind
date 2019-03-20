@@ -8,8 +8,15 @@ class DonationList extends Component {
     };
 
     componentDidMount() {
+        // this.resetPage();
         this.findAllDonations();
     };
+
+    // resetPage = () => {
+    //     this.setState({
+    //         donations: []
+    //     })
+    // }
 
     findAllDonations = () => {
         API.findAllDonations()

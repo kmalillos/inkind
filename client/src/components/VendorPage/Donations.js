@@ -41,7 +41,7 @@ export const DonationTableItem = (props) => {
             <td>{props.date}</td>
             <td>${props.donationValue}</td>
             <td>
-                <button id={props.id} onClick={props.onClick}>
+                <button className="btn-danger" id={props.id} onClick={props.onClick}>
                     X
                 </button>
             </td>

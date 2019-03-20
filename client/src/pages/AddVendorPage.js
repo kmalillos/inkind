@@ -198,7 +198,7 @@ class AddVendor extends Component {
                                 <br></br>
 
                                 {this.redirectPage()}
-                                <Button className="btn-info"
+                                <Button className="btn-info btn-block" 
                                     onClick={this.handleFormSubmit}
                                 >
                                     Add Vendor
@@ -208,7 +208,7 @@ class AddVendor extends Component {
                     </Row>
                 </Container>
 
-            </div >
+            </div>
         )
     };
 };

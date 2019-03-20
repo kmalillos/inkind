@@ -47,20 +47,22 @@ class VendorPage extends Component {
         event.preventDefault();
         console.log("edit", id);
         alert("Function underconstruction...");
+        this.findOneVendor();
     }
 
     deleteVendor = (event, id) => {
         event.preventDefault();
         console.log("delete", id);
         if (window.confirm("Are you sure you want to delete?")) {
-            API.deleteVendor(event.target.id)
-                .then(res => {
-                    console.log("Deleted Donation");
-                    alert("Function underconstruction...");
-                    this.findOneVendor();
-                })
-                .catch(err => console.log(err));
+            alert("Function underconstruction...");
+            // API.deleteVendor(event.target.id)
+            //     .then(res => {
+            //         console.log("Deleted Donation");
+            //         this.findOneVendor();
+            //     })
+            //     .catch(err => console.log(err));
         } else {
+            alert("Function underconstruction...");
             this.findOneVendor();
         }
     }
@@ -74,12 +76,21 @@ class VendorPage extends Component {
 
     handleFormSubmit = (event) => {
         event.preventDefault();
+        this.resetForm();
         this.createDonation();
     };
 
+    resetForm = () => {
+        this.setState({
+            donationType: "",
+            note: "",
+            date: "",
+            donationValue: ""
+        })
+    }
+
     createDonation = () => {
-        console.log(`Adding: ${this.state.VendorId} & ${this.state.donationType} & ${this.state.note}`)
-        if (this.state.VendorId && this.state.donationType && this.state.note) {
+        if (this.state.VendorId && this.state.donationType && this.state.note && this.state.date && this.state.donationValue) {
             API.createDonation({
                 VendorId: this.state.VendorId,
                 donationType: this.state.donationType,
@@ -94,7 +105,7 @@ class VendorPage extends Component {
                 })
                 .catch(err => console.log(err));
         } else {
-            alert("Please enter required fields.")
+            alert("All fields are required.")
         }
     }
 
@@ -130,14 +141,14 @@ class VendorPage extends Component {
                         <Col>
                             <h1>{this.state.vendor.vendorName}</h1>
 
-                            <Button className="btn-info float-right"
+                            <Button className="btn-link float-right"
                                 id={this.state.VendorId}
                                 onClick={this.deleteVendor}
                             >
                                 Delete Vendor
                             </Button>
 
-                            <Button className="btn-info float-right"
+                            <Button className="btn-link float-right"
                                 id={this.state.VendorId}
                                 onClick={this.editVendor}
                             >
@@ -221,6 +232,7 @@ class VendorPage extends Component {
 
                                 <Form.Label>Date (Required)</Form.Label>  <br></br>
                                 <Form.Control
+                                    type="date"
                                     value={this.state.date}
                                     onChange={this.handleChange}
                                     name="date"
@@ -229,6 +241,7 @@ class VendorPage extends Component {
 
                                 <Form.Label>Donation Value (Required)</Form.Label>  <br></br>
                                 <Form.Control
+                                    type="number"
                                     value={this.state.donationValue}
                                     onChange={this.handleChange}
                                     name="donationValue"
@@ -237,7 +250,7 @@ class VendorPage extends Component {
 
                                 <br></br>
 
-                                <Button className="btn-info"
+                                <Button className="btn-info btn-block"
                                     onClick={this.handleFormSubmit}
                                 >
                                     Add Donation

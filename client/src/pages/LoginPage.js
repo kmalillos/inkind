@@ -44,6 +44,11 @@ class Login extends Component {
         }
     };
 
+    handleSignUpSubmit = (event) => {
+        event.preventDefault();
+        alert("You must have admin privileges to sign up  a new user.");
+    }
+
     setRedirect = () => {
         this.setState({
             redirect: true
@@ -99,6 +104,12 @@ class Login extends Component {
                                     onClick={this.handleFormSubmit}
                                 >
                                     Login
+                                 </Button>
+
+                                 <Button className="btn btn-link float-right"
+                                    onClick={this.handleSignUpSubmit}
+                                >
+                                    New User
                                  </Button>
                             </Form>
 
