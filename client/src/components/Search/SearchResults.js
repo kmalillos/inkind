@@ -6,7 +6,7 @@ export const ResultsWrapper = ({ children }) => {
 
     return (
         <div>
-            <h3> Search Results </h3>
+            <h3 className="text-center"> Search Results </h3>
             <Card>
                 <Card.Body>
                     <ListGroup variant="flush">

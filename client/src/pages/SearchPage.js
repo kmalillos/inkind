@@ -243,34 +243,36 @@ class Search extends Component {
                         </Col>
                         <Col>
 
-                            <ResultsWrapper>
-                                {this.state.vendorData.map(data => {
-                                    // console.log("Vendor Data: ", data)
-                                    return <VendorResults
-                                        key={data.id}
-                                        vendorID={data.id}
-                                        vendorName={data.vendorName}
-                                    />
-                                }
-                                )}
-
-                                {this.state.donationData.map(data => {
-                                    // console.log("Donation Data: ", data)
-                                    return <DonationResults
-                                        key={data.VendorId}
-                                        vendorID={data.VendorId}
-                                        vendorName={data.Vendor.vendorName}
-                                    />
-                                }
-                                )}
-                            </ResultsWrapper>
-
                             <Card>
                                 <Card.Img variant="top" src={search} />
                             </Card>
 
                         </Col>
                     </Row>
+
+                    <br></br>
+                    <ResultsWrapper>
+                        {this.state.vendorData.map(data => {
+                            // console.log("Vendor Data: ", data)
+                            return <VendorResults
+                                key={data.id}
+                                vendorID={data.id}
+                                vendorName={data.vendorName}
+                            />
+                        }
+                        )}
+
+                        {this.state.donationData.map(data => {
+                            // console.log("Donation Data: ", data)
+                            return <DonationResults
+                                key={data.VendorId}
+                                vendorID={data.VendorId}
+                                vendorName={data.Vendor.vendorName}
+                            />
+                        }
+                        )}
+                    </ResultsWrapper>
+
                 </Container>
 
                 <p>

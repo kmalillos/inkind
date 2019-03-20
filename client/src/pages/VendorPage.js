@@ -46,7 +46,7 @@ class VendorPage extends Component {
     editVendor = (event, id) => {
         event.preventDefault();
         console.log("edit", id);
-        // CODE HERE
+        alert("Function underconstruction...");
     }
 
     deleteVendor = (event, id) => {
@@ -56,6 +56,7 @@ class VendorPage extends Component {
             API.deleteVendor(event.target.id)
                 .then(res => {
                     console.log("Deleted Donation");
+                    alert("Function underconstruction...");
                     this.findOneVendor();
                 })
                 .catch(err => console.log(err));
