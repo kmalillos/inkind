@@ -14,7 +14,7 @@ const Footer = () => {
                     <span> | </span>
                     <a href="/porfolio" target="_blank">Portfolio</a>
                     <Route path='/porfolio'
-                        component={() => { window.location = 'https://github.com/kmalillos/inkind'; return null; }} />
+                        component={() => { window.location = 'https://kmalillos.github.io/'; return null; }} />
                 </p>
             </footer>
         </>
