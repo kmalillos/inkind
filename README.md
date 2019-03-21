@@ -1,5 +1,5 @@
 # inkind
 
 To Login, please use:
-Username: admin
-Password: test
+* Username: admin
+* Password: test
