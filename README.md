@@ -39,12 +39,12 @@ A custom donation tracker and database.
 
 ### MVC Structure:
 
-* **Model-View-Controller (MVC) Structure** - architectural pattern that separates an application into three main logical components (model, view, and controller) where each component is built to handle a specific development aspect
+* **Model-View-Controller (MVC) Structure** - *architectural pattern that separates an application into three main logical components (model, view, and controller) where each component is built to handle a specific development aspect*
 
-* **Model** - data-related logic, found in 'model' directory
+* **Model** - *data-related logic that interacts with database*
 
-    *  Model contains data-related logic using **Sequelize** to create tables and columns in **mySQL** : 
-        * 'Vendor' table, includes name, address, and contact info of individual or company who made the donation ('Vendor))
+    *  'Model' directory contains data-related logic using **Sequelize** to create tables and columns in **mySQL** (relational database management system)
+        * 'Vendor' table, includes name, address, and contact info of individual or company who made the donation ('Vendor')
         * 'Donation' table, includes type, description, date, and value of item donated ('Donation')
         * 'User' table, holds username and password for each user (used for authentication)
     
@@ -54,22 +54,36 @@ A custom donation tracker and database.
         * A 'Vendor' can have many 'Donations'
         * When 'Vendor' is deleted, all 'Donations' associated with 'Vendor' is also deleted
 
-        ![Image](https://github.com/kmalillos/inkind/blob/master/readme/mvc2.PNGURL HERE)
+        ![Image](https://github.com/kmalillos/inkind/blob/master/readme/mvc2.PNG)
 
     * 'Donation' table is associated with 'Vendor' table
         * 'Donations' belongs to 'Vendor' and cannot be created without a 'Vendor'
 
         ![Image](https://github.com/kmalillos/inkind/blob/master/readme/mvc4.PNG)
 
-* **View** -  UI logic, found in 'client' directory
+* **View** -  *user-interface logic, found in 'client' directory*
 
-* **Controller** - interface between Model and View components, found in 'controller' directory
+    * Viewt/'client' directory contains **React** directories and files installed with *create-react-app* using **Node.js**
+        * More on React below.
 
+        ![Image](https://github.com/kmalillos/inkind/blob/master/readme/mvc5.PNG)
+
+* **Controller** - *interface between Model and View components*
+
+    * 'Controller' directory contains logic for CRUD (create, read, update, delete) methods for **mySQL**
+        * *.findAll* and *.findOne* methods 'reads' database
+            * then
+            ![Image](https://github.com/kmalillos/inkind/blob/master/readme/mvc6.PNG)
+        * *.create* method 'creates' new entry in database
+            * then
+            ![Image](https://github.com/kmalillos/inkind/blob/master/readme/mvc6.PNG)
+        * *.destroy* method 'deletes' entry in database
+            * then
+            ![Image](https://github.com/kmalillos/inkind/blob/master/readme/mvc6.PNG)
 
 <!-- ### Models-Views-Controller (MVC) Paradigm
 
-### Handlebars.js
-
+### Handlebars.js7
 ### Bootstrap
 
 ### CSS
