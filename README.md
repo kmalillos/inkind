@@ -72,17 +72,12 @@ A custom donation tracker and database.
 
     * 'Controller' directory contains logic for CRUD (create, read, update, delete) methods for **mySQL**
         * *.findAll* and *.findOne* methods 'reads' database
+        * *.create* method 'creates' new entry in database   
+        * *.destroy* method 'deletes' entry in database    
             * takes user input using *req.params.id*
             * then sends response via JSON (JavaScript Object Notation) of database
-            ![Image](https://github.com/kmalillos/inkind/blob/master/readme/mvc6.PNG)
-        * *.create* method 'creates' new entry in database
-            * takes user input using *req.params.id*
-            * then sends response via JSON (JavaScript Object Notation) of database
-            ![Image](https://github.com/kmalillos/inkind/blob/master/readme/mvc6.PNG)
-        * *.destroy* method 'deletes' entry in database
-            * takes user input using *req.params.id*
-            * then sends response via JSON (JavaScript Object Notation) of database
-            ![Image](https://github.com/kmalillos/inkind/blob/master/readme/mvc6.PNG)
+
+        ![Image](https://github.com/kmalillos/inkind/blob/master/readme/mvc6.PNG)
 
 <!-- ### Models-Views-Controller (MVC) Paradigm
 
