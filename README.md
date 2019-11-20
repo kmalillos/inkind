@@ -8,7 +8,6 @@ A custom donation tracker and database.
 **Username:** admin <br>
 **Password:** test 
 
-
 <!-- ## How It Works
 
 * User creates a Login though the Sign-Up page
@@ -63,7 +62,7 @@ A custom donation tracker and database.
 
 * **View** -  *user-interface logic, found in 'client' directory*
 
-    * Viewt/'client' directory contains **React** directories and files installed with *create-react-app* using **Node.js**
+    * Viewt/'client' directory contains **React** directories and files installed with *create-react-app* in command line
         * More on React later below.
 
         ![Image](https://github.com/kmalillos/inkind/blob/master/readme/mvc5.PNG)
@@ -79,22 +78,15 @@ A custom donation tracker and database.
 
         ![Image](https://github.com/kmalillos/inkind/blob/master/readme/mvc6.PNG)
 
-<!-- ### Models-Views-Controller (MVC) Paradigm
+### React:
 
-### Handlebars.js7
-### Bootstrap
+* **React** - *JavaScript library for building user-interface components and uses a virtual DOM prior to manipulating 'real' DOM*
+    
+    * used *'create-react-app'* [Documentation Here](https://reactjs.org/docs/create-a-new-react-app.html) in to create React files
 
-### CSS
+    * 'App.js' exports React components in 'index.js' which renders content in 'index.html' in 'public' directory
 
-### Express.js
-
-###  mySQL
-
-###  Sequelize
-
-###  JavaScript + jQuery
-
-###  Passport.js -->
+    * 'src' directory containts 'components' directory where UI components are created
 
 ## Contributors
 
