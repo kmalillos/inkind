@@ -37,6 +37,34 @@ A custom donation tracker and database.
 * Sequelize
 * JWT Authenticatication
 
+### MVC Structure:
+
+* **Model-View-Controller (MVC) Structure** - architectural pattern that separates an application into three main logical components (model, view, and controller) where each component is built to handle a specific development aspect
+
+* **Model** - data-related logic, found in 'model' directory
+
+    *  Model contains data-related logic using **Sequelize** to create tables and columns in **mySQL** : 
+        * 'Vendor' table, includes name, address, and contact info of individual or company who made the donation ('Vendor))
+        * 'Donation' table, includes type, description, date, and value of item donated ('Donation')
+        * 'User' table, holds username and password for each user (used for authentication)
+    
+    ![Image](URL HERE)
+
+    * 'Vendor' table is associated with 'Donation' table
+        * A 'Vendor' can have many 'Donations'
+        * When 'Vendor' is deleted, all 'Donations' associated with 'Vendor' is also deleted
+
+        ![Image](URL HERE)
+
+    * 'Donation' table is associated with 'Vendor' table
+        * 'Donations' belongs to 'Vendor' and cannot be created without a 'Vendor'
+
+        ![Image](URL HERE)
+
+* **View** -  UI logic, found in 'client' directory
+
+* **Controller** - interface between Model and View components, found in 'controller' directory
+
 
 <!-- ### Models-Views-Controller (MVC) Paradigm
 
