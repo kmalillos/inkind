@@ -48,18 +48,18 @@ A custom donation tracker and database.
         * 'Donation' table, includes type, description, date, and value of item donated ('Donation')
         * 'User' table, holds username and password for each user (used for authentication)
     
-    ![Image](URL HERE)
+    ![Image](https://github.com/kmalillos/inkind/blob/master/readme/mvc1.PNG)
 
     * 'Vendor' table is associated with 'Donation' table
         * A 'Vendor' can have many 'Donations'
         * When 'Vendor' is deleted, all 'Donations' associated with 'Vendor' is also deleted
 
-        ![Image](URL HERE)
+        ![Image](https://github.com/kmalillos/inkind/blob/master/readme/mvc2.PNGURL HERE)
 
     * 'Donation' table is associated with 'Vendor' table
         * 'Donations' belongs to 'Vendor' and cannot be created without a 'Vendor'
 
-        ![Image](URL HERE)
+        ![Image](https://github.com/kmalillos/inkind/blob/master/readme/mvc4.PNG)
 
 * **View** -  UI logic, found in 'client' directory
 
