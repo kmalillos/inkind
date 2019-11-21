@@ -4,9 +4,11 @@ A custom donation tracker and database.
 
 ### Try It Out (Login details below): [Live Page Here](https://inkindconnections.herokuapp.com/)
 
-
 **Username:** admin <br>
 **Password:** test 
+
+![Image](https://github.com/kmalillos/inkind/blob/master/readme/Capture1.PNG)
+
 
 <!-- ## How It Works
 
