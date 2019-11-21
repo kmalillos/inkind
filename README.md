@@ -87,6 +87,9 @@ A custom donation tracker and database.
     * used *'create-react-app'* [(Documentation Here)](https://reactjs.org/docs/create-a-new-react-app.html) in to create React files
 
     * 'App.js' exports React components in 'index.js' which renders content in 'index.html' in 'public' directory
+
+        ![Image](https://github.com/kmalillos/inkind/blob/master/readme/react9.PNG)
+
         * *BrowserRouter* from "react-router-dom" uses 'Routes' to render components
         * Components are imported in 'App.js' from 'components'
 
