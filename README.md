@@ -90,7 +90,7 @@ A custom donation tracker and database.
 
         ![Image](https://github.com/kmalillos/inkind/blob/master/readme/react9.PNG)
 
-        * *BrowserRouter* from "react-router-dom" uses 'Routes' to render components
+        * In 'App.js', *BrowserRouter* from "react-router-dom" uses 'Routes' to render components
         * Components are imported in 'App.js' from 'components'
 
         ![Image](https://github.com/kmalillos/inkind/blob/master/readme/react1.PNG)
