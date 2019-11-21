@@ -122,8 +122,11 @@ A custom donation tracker and database.
                 * contents here are populated in VendorTable
 
                 ![Image](https://github.com/kmalillos/inkind/blob/master/readme/react7.PNG)
+
+
+<!-- ## Node and Express -->
         
 
-## Contributorss
+## Contributors
 
 ### Kaylah Malillos ([Portfolio](https://kmalillos.github.io/))
