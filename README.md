@@ -94,7 +94,7 @@ A custom donation tracker and database.
 
     * 'Components' directory in 'src' directory contains JS files that creates each UI component
 
-        * Components (i.e. VendorList component) imports API from 'utils' and components from another functional component (ex: VendorTable component)
+        * *Class Components* (ex: VendorList component) imports API from 'utils' and components from another functional component (i.e. VendorTable component)
 
             ![Image](https://github.com/kmalillos/inkind/blob/master/readme/react3.PNG)
 
@@ -102,14 +102,28 @@ A custom donation tracker and database.
 
             ![Image](https://github.com/kmalillos/inkind/blob/master/readme/react4.PNG)
 
-            * Then, component renders data inside components of VendorTable component
+            * Then, this component renders data inside components of VendorTable component
                 * Uses .map function to loop through data
 
-            ![Image](https://github.com/kmalillos/inkind/blob/master/readme/react5.PNG)
+                ![Image](https://github.com/kmalillos/inkind/blob/master/readme/react5.PNG)
 
         * VendorTable *functional (or dumb) component* focuses on user interface and accept props to pass through them (and rarely use state) 
+
+            * This component imports styling from 'react-bootstrap' and linking functionality from 'react-router-dom' packagers
+
+            ![Image](https://github.com/kmalillos/inkind/blob/master/readme/react8.PNG)
+
+            * VendorTable creates a table to display data to be exported to 'VendorList' component
+                * accepts props 'children' to be populated inside <tbody> element
+
+                ![Image](https://github.com/kmalillos/inkind/blob/master/readme/react6.PNG)
+
+            * VendorTableItem passes props to be populated in 'VendorList' component
+                * contents here are populated in VendorTable
+
+                ![Image](https://github.com/kmalillos/inkind/blob/master/readme/react7.PNG)
         
 
-## Contributors
+## Contributorss
 
 ### Kaylah Malillos ([Portfolio](https://kmalillos.github.io/))
