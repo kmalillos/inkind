@@ -82,11 +82,33 @@ A custom donation tracker and database.
 
 * **React** - *JavaScript library for building user-interface components and uses a virtual DOM prior to manipulating 'real' DOM*
     
-    * used *'create-react-app'* [Documentation Here](https://reactjs.org/docs/create-a-new-react-app.html) in to create React files
+    * used *'create-react-app'* [(Documentation Here)](https://reactjs.org/docs/create-a-new-react-app.html) in to create React files
 
     * 'App.js' exports React components in 'index.js' which renders content in 'index.html' in 'public' directory
+        * *BrowserRouter* from "react-router-dom" uses 'Routes' to render components
+        * Components are imported in 'App.js' from 'components'
 
-    * 'src' directory containts 'components' directory where UI components are created
+        ![Image](https://github.com/kmalillos/inkind/blob/master/readme/react1.PNG)
+
+        ![Image](https://github.com/kmalillos/inkind/blob/master/readme/react2.PNG)
+
+    * 'Components' directory in 'src' directory contains JS files that creates each UI component
+
+        * Components (i.e. VendorList component) imports API from 'utils' and components from another functional component (ex: VendorTable component)
+
+            ![Image](https://github.com/kmalillos/inkind/blob/master/readme/react3.PNG)
+
+        * VendorList *class (or smart) component* manages state, manipulates data using API, and calls lifecycle method (i.e. render();)
+
+            ![Image](https://github.com/kmalillos/inkind/blob/master/readme/react4.PNG)
+
+            * Then, component renders data inside components of VendorTable component
+                * Uses .map function to loop through data
+
+            ![Image](https://github.com/kmalillos/inkind/blob/master/readme/react5.PNG)
+
+        * VendorTable *functional (or dumb) component* focuses on user interface and accept props to pass through them (and rarely use state) 
+        
 
 ## Contributors
 
